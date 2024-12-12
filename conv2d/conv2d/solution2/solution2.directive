@@ -1,0 +1,46 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="port" value="a" positionalBoolean="4"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="port" value="b" positionalBoolean="4"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="port" value="res" positionalBoolean="4"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="a" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="dim" value="2"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="b" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="dim" value="2"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="res" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="dim" value="2"/>
+            </pragma>
+        </directive>
+        <directive functionName="conv2d" label="Product" functionLabel="">
+            <pragma name="PIPELINE">
+                <option name="II" value="1"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

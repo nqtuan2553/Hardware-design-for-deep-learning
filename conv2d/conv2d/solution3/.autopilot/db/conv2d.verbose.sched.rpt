@@ -1,0 +1,499 @@
+
+
+================================================================
+== Vivado HLS Report for 'conv2d'
+================================================================
+* Date:           Thu Dec 12 15:57:17 2024
+
+* Version:        2018.1 (Build 2188600 on Wed Apr 04 19:04:02 MDT 2018)
+* Project:        conv2d
+* Solution:       solution3
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.13|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   12|   12|   12|   12|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
+        |           |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Row_Col  |   10|   10|         3|          1|          1|     9|    yes   |
+        +-----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	5  / (exitcond_flatten)
+	3  / (!exitcond_flatten)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.30ns
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_4), !map !7"
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_3), !map !13"
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_2), !map !19"
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_1), !map !25"
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_0), !map !31"
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_4), !map !37"
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_3), !map !42"
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_2), !map !47"
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_1), !map !52"
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_0), !map !57"
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_4), !map !62"
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_3), !map !67"
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_2), !map !72"
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_1), !map !77"
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_0), !map !82"
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_4), !map !87"
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_3), !map !92"
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_2), !map !97"
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_1), !map !102"
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_0), !map !107"
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_4), !map !112"
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_3), !map !117"
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_2), !map !122"
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_1), !map !127"
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_0), !map !132"
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_2), !map !137"
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_1), !map !141"
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_0), !map !145"
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_2), !map !149"
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_1), !map !153"
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_0), !map !157"
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_2), !map !161"
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_1), !map !165"
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_0), !map !169"
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([9 x i16]* %res), !map !173"
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @conv2d_str) nounwind"
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%a_0_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_1)" [conv2d.cpp:16]
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%a_0_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_2)" [conv2d.cpp:16]
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%a_0_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_3)" [conv2d.cpp:16]
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%a_1_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_2)" [conv2d.cpp:16]
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%a_1_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_3)" [conv2d.cpp:16]
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%a_1_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_4)" [conv2d.cpp:16]
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%a_1_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_1)" [conv2d.cpp:16]
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%a_1_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_0)" [conv2d.cpp:16]
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%a_2_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_0)" [conv2d.cpp:16]
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%a_2_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_1)" [conv2d.cpp:16]
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%a_2_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_2)" [conv2d.cpp:16]
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%a_2_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_3)" [conv2d.cpp:16]
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%a_2_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_4)" [conv2d.cpp:16]
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%a_3_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_2)" [conv2d.cpp:16]
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%a_3_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_3)" [conv2d.cpp:16]
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%a_3_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_4)" [conv2d.cpp:16]
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%a_3_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_1)" [conv2d.cpp:16]
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%a_3_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_0)" [conv2d.cpp:16]
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%a_4_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_1)" [conv2d.cpp:16]
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%a_4_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_2)" [conv2d.cpp:16]
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%a_4_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_3)" [conv2d.cpp:16]
+ST_1 : Operation 63 [1/1] (1.30ns)   --->   "br label %1" [conv2d.cpp:9]
+
+ <State 2> : 3.48ns
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i4 [ 0, %0 ], [ %indvar_flatten_next, %branch42228 ]"
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%i = phi i2 [ 0, %0 ], [ %tmp_mid2_v, %branch42228 ]" [conv2d.cpp:13]
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%j = phi i2 [ 0, %0 ], [ %j_1, %branch42228 ]"
+ST_2 : Operation 67 [1/1] (1.09ns)   --->   "%exitcond_flatten = icmp eq i4 %indvar_flatten, -7"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"
+ST_2 : Operation 69 [1/1] (1.52ns)   --->   "%indvar_flatten_next = add i4 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %2, label %.reset"
+ST_2 : Operation 71 [1/1] (1.27ns)   --->   "%i_1 = add i2 %i, 1" [conv2d.cpp:9]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 72 [1/1] (0.89ns)   --->   "%exitcond = icmp eq i2 %j, -1" [conv2d.cpp:11]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 73 [1/1] (0.81ns)   --->   "%j_mid2 = select i1 %exitcond, i2 0, i2 %j" [conv2d.cpp:11]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 74 [1/1] (0.81ns)   --->   "%tmp_mid2_v = select i1 %exitcond, i2 %i_1, i2 %i" [conv2d.cpp:13]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch42227 [
+    i2 0, label %branch012
+    i2 1, label %branch41225
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 76 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 77 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 78 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch217 [
+    i2 0, label %branch013
+    i2 1, label %branch012
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%a_0_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_0)" [conv2d.cpp:16]
+ST_2 : Operation 80 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 81 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 82 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch275 [
+    i2 0, label %branch012
+    i2 1, label %branch173
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 83 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 84 [1/1] (1.77ns)   --->   "br label %branch012" [conv2d.cpp:16]
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%b_0_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_0)" [conv2d.cpp:16]
+ST_2 : Operation 86 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch38212 [
+    i2 0, label %branch537
+    i2 1, label %branch37210
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 87 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 88 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 89 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch844 [
+    i2 0, label %branch537
+    i2 1, label %branch742
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 90 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 91 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 92 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch8109 [
+    i2 0, label %branch537
+    i2 1, label %branch7107
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 93 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 94 [1/1] (1.77ns)   --->   "br label %branch537" [conv2d.cpp:16]
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%b_0_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_1)" [conv2d.cpp:16]
+ST_2 : Operation 96 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch34197 [
+    i2 0, label %branch1067
+    i2 1, label %branch33195
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 97 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 98 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 99 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch1476 [
+    i2 0, label %branch1067
+    i2 1, label %branch1374
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 100 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%a_0_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_4)" [conv2d.cpp:16]
+ST_2 : Operation 102 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 103 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch14133 [
+    i2 0, label %branch1067
+    i2 1, label %branch13131
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 104 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 105 [1/1] (1.77ns)   --->   "br label %branch1067" [conv2d.cpp:16]
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%b_0_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_2)" [conv2d.cpp:16]
+ST_2 : Operation 107 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch17148 [
+    i2 0, label %branch16171
+    i2 1, label %branch16146
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 108 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 109 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 110 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch27176 [
+    i2 0, label %branch16171
+    i2 1, label %branch26174
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 111 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 112 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 113 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch27238 [
+    i2 0, label %branch16171
+    i2 1, label %branch26236
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 114 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 115 [1/1] (1.77ns)   --->   "br label %branch16171" [conv2d.cpp:16]
+ST_2 : Operation 116 [1/1] (0.00ns)   --->   "%b_1_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_0)" [conv2d.cpp:16]
+ST_2 : Operation 117 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch23167 [
+    i2 0, label %branch21154
+    i2 1, label %branch22165
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 118 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 119 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 120 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch23161 [
+    i2 0, label %branch21154
+    i2 1, label %branch22159
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 121 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 122 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 123 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch23223 [
+    i2 0, label %branch21154
+    i2 1, label %branch22221
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 124 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 125 [1/1] (1.77ns)   --->   "br label %branch21154" [conv2d.cpp:16]
+ST_2 : Operation 126 [1/1] (0.00ns)   --->   "%b_1_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_1)" [conv2d.cpp:16]
+ST_2 : Operation 127 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch29186 [
+    i2 0, label %branch26137
+    i2 1, label %branch28184
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 128 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 129 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 130 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch19146 [
+    i2 0, label %branch26137
+    i2 1, label %branch18144
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 131 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 132 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 133 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch19207 [
+    i2 0, label %branch26137
+    i2 1, label %branch18205
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 134 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 135 [1/1] (1.77ns)   --->   "br label %branch26137" [conv2d.cpp:16]
+ST_2 : Operation 136 [1/1] (0.00ns)   --->   "%b_1_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_2)" [conv2d.cpp:16]
+ST_2 : Operation 137 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch12177 [
+    i2 0, label %branch32194
+    i2 1, label %branch11175
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 138 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 139 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 140 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch32199 [
+    i2 0, label %branch32194
+    i2 1, label %branch31197
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 141 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 142 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 143 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch32296 [
+    i2 0, label %branch30292
+    i2 1, label %branch32194
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 144 [1/1] (0.00ns)   --->   "%a_4_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_0)" [conv2d.cpp:16]
+ST_2 : Operation 145 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 146 [1/1] (1.77ns)   --->   "br label %branch32194" [conv2d.cpp:16]
+ST_2 : Operation 147 [1/1] (0.00ns)   --->   "%b_2_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_0)" [conv2d.cpp:16]
+ST_2 : Operation 148 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch8132 [
+    i2 0, label %branch37211
+    i2 1, label %branch7130
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 149 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 150 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 151 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch38218 [
+    i2 0, label %branch37211
+    i2 1, label %branch37216
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 152 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 153 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 154 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch38315 [
+    i2 0, label %branch37211
+    i2 1, label %branch37313
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 155 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 156 [1/1] (1.77ns)   --->   "br label %branch37211" [conv2d.cpp:16]
+ST_2 : Operation 157 [1/1] (0.00ns)   --->   "%b_2_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_1)" [conv2d.cpp:16]
+ST_2 : Operation 158 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch483 [
+    i2 0, label %branch42228
+    i2 1, label %branch381
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 159 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 160 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 161 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch44237 [
+    i2 0, label %branch42228
+    i2 1, label %branch43235
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 162 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 163 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 164 [1/1] (1.77ns)   --->   "switch i2 %j_mid2, label %branch44334 [
+    i2 0, label %branch42228
+    i2 1, label %branch43332
+  ]" [conv2d.cpp:16]
+ST_2 : Operation 165 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 166 [1/1] (0.00ns)   --->   "%a_4_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_4)" [conv2d.cpp:16]
+ST_2 : Operation 167 [1/1] (1.77ns)   --->   "br label %branch42228" [conv2d.cpp:16]
+ST_2 : Operation 168 [1/1] (0.00ns)   --->   "%b_2_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_2)" [conv2d.cpp:16]
+ST_2 : Operation 169 [1/1] (1.27ns)   --->   "%j_1 = add i2 %j_mid2, 1" [conv2d.cpp:11]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 3> : 8.06ns
+ST_3 : Operation 170 [1/1] (0.00ns)   --->   "%a_load_0_0_phi = phi i8 [ %a_0_0_read, %branch013 ], [ %a_0_2_read, %branch217 ], [ %a_1_1_read, %branch41225 ], [ %a_1_2_read, %branch42227 ], [ %a_2_1_read, %branch173 ], [ %a_2_2_read, %branch275 ], [ %a_0_1_read, %branch0 ], [ %a_1_0_read, %branch1 ], [ %a_2_0_read, %branch2 ]" [conv2d.cpp:16]
+ST_3 : Operation 171 [1/1] (0.00ns)   --->   "%tmp_s = sext i8 %a_load_0_0_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 172 [1/1] (0.00ns)   --->   "%tmp_1 = sext i8 %b_0_0_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 173 [1/1] (3.61ns)   --->   "%tmp_4 = mul i16 %tmp_1, %tmp_s" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 174 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch7 [
+    i2 0, label %branch5
+    i2 1, label %branch6
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 175 [1/1] (0.00ns)   --->   "%a_load_0_1_phi = phi i8 [ %a_0_2_read, %branch742 ], [ %a_0_3_read, %branch844 ], [ %a_1_2_read, %branch37210 ], [ %a_1_3_read, %branch38212 ], [ %a_2_2_read, %branch7107 ], [ %a_2_3_read, %branch8109 ], [ %a_0_1_read, %branch5 ], [ %a_1_1_read, %branch6 ], [ %a_2_1_read, %branch7 ]" [conv2d.cpp:16]
+ST_3 : Operation 176 [1/1] (0.00ns)   --->   "%tmp_10_0_1 = sext i8 %a_load_0_1_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 177 [1/1] (0.00ns)   --->   "%tmp_12_0_1 = sext i8 %b_0_1_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 178 [1/1] (3.61ns)   --->   "%tmp_13_0_1 = mul i16 %tmp_12_0_1, %tmp_10_0_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 179 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch12 [
+    i2 0, label %branch10
+    i2 1, label %branch11
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 180 [1/1] (0.00ns)   --->   "%a_load_0_2_phi = phi i8 [ %a_0_3_read, %branch1374 ], [ %a_0_4_read, %branch1476 ], [ %a_1_3_read, %branch33195 ], [ %a_1_4_read, %branch34197 ], [ %a_2_3_read, %branch13131 ], [ %a_2_4_read, %branch14133 ], [ %a_0_2_read, %branch10 ], [ %a_1_2_read, %branch11 ], [ %a_2_2_read, %branch12 ]" [conv2d.cpp:16]
+ST_3 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_10_0_2 = sext i8 %a_load_0_2_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 182 [1/1] (0.00ns)   --->   "%tmp_12_0_2 = sext i8 %b_0_2_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 183 [1/1] (3.61ns)   --->   "%tmp_13_0_2 = mul i16 %tmp_12_0_2, %tmp_10_0_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 184 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch18 [
+    i2 0, label %branch16
+    i2 1, label %branch17
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 185 [1/1] (0.00ns)   --->   "%a_load_1_0_phi = phi i8 [ %a_1_1_read, %branch26174 ], [ %a_1_2_read, %branch27176 ], [ %a_2_1_read, %branch16146 ], [ %a_2_2_read, %branch17148 ], [ %a_3_1_read, %branch26236 ], [ %a_3_2_read, %branch27238 ], [ %a_1_0_read, %branch16 ], [ %a_2_0_read, %branch17 ], [ %a_3_0_read, %branch18 ]" [conv2d.cpp:16]
+ST_3 : Operation 186 [1/1] (0.00ns)   --->   "%tmp_10_1 = sext i8 %a_load_1_0_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 187 [1/1] (0.00ns)   --->   "%tmp_12_1 = sext i8 %b_1_0_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 188 [1/1] (3.61ns)   --->   "%tmp_13_1 = mul i16 %tmp_10_1, %tmp_12_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 189 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch23 [
+    i2 0, label %branch21
+    i2 1, label %branch22
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 190 [1/1] (0.00ns)   --->   "%a_load_1_1_phi = phi i8 [ %a_1_2_read, %branch22159 ], [ %a_1_3_read, %branch23161 ], [ %a_2_2_read, %branch22165 ], [ %a_2_3_read, %branch23167 ], [ %a_3_2_read, %branch22221 ], [ %a_3_3_read, %branch23223 ], [ %a_1_1_read, %branch21 ], [ %a_2_1_read, %branch22 ], [ %a_3_1_read, %branch23 ]" [conv2d.cpp:16]
+ST_3 : Operation 191 [1/1] (0.00ns)   --->   "%tmp_10_1_1 = sext i8 %a_load_1_1_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 192 [1/1] (0.00ns)   --->   "%tmp_12_1_1 = sext i8 %b_1_1_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 193 [1/1] (3.61ns)   --->   "%tmp_13_1_1 = mul i16 %tmp_10_1_1, %tmp_12_1_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 194 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch28 [
+    i2 0, label %branch26
+    i2 1, label %branch27
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 195 [1/1] (0.00ns)   --->   "%a_load_1_2_phi = phi i8 [ %a_1_3_read, %branch18144 ], [ %a_1_4_read, %branch19146 ], [ %a_2_3_read, %branch28184 ], [ %a_2_4_read, %branch29186 ], [ %a_3_3_read, %branch18205 ], [ %a_3_4_read, %branch19207 ], [ %a_1_2_read, %branch26 ], [ %a_2_2_read, %branch27 ], [ %a_3_2_read, %branch28 ]" [conv2d.cpp:16]
+ST_3 : Operation 196 [1/1] (0.00ns)   --->   "%tmp_10_1_2 = sext i8 %a_load_1_2_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 197 [1/1] (0.00ns)   --->   "%tmp_12_1_2 = sext i8 %b_1_2_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 198 [1/1] (3.61ns)   --->   "%tmp_13_1_2 = mul i16 %tmp_12_1_2, %tmp_10_1_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 199 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch34 [
+    i2 0, label %branch32
+    i2 1, label %branch33
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 200 [1/1] (0.00ns)   --->   "%a_load_2_0_phi = phi i8 [ %a_2_1_read, %branch31197 ], [ %a_2_2_read, %branch32199 ], [ %a_3_1_read, %branch11175 ], [ %a_3_2_read, %branch12177 ], [ %a_4_0_read, %branch30292 ], [ %a_4_2_read, %branch32296 ], [ %a_2_0_read, %branch32 ], [ %a_3_0_read, %branch33 ], [ %a_4_1_read, %branch34 ]" [conv2d.cpp:16]
+ST_3 : Operation 201 [1/1] (0.00ns)   --->   "%tmp_10_2 = sext i8 %a_load_2_0_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 202 [1/1] (0.00ns)   --->   "%tmp_12_2 = sext i8 %b_2_0_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 203 [1/1] (3.61ns)   --->   "%tmp_13_2 = mul i16 %tmp_10_2, %tmp_12_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 204 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch39 [
+    i2 0, label %branch37
+    i2 1, label %branch38
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 205 [1/1] (0.00ns)   --->   "%a_load_2_1_phi = phi i8 [ %a_2_2_read, %branch37216 ], [ %a_2_3_read, %branch38218 ], [ %a_3_2_read, %branch7130 ], [ %a_3_3_read, %branch8132 ], [ %a_4_2_read, %branch37313 ], [ %a_4_3_read, %branch38315 ], [ %a_2_1_read, %branch37 ], [ %a_3_1_read, %branch38 ], [ %a_4_1_read, %branch39 ]" [conv2d.cpp:16]
+ST_3 : Operation 206 [1/1] (0.00ns)   --->   "%tmp_10_2_1 = sext i8 %a_load_2_1_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 207 [1/1] (0.00ns)   --->   "%tmp_12_2_1 = sext i8 %b_2_1_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 208 [1/1] (3.61ns)   --->   "%tmp_13_2_1 = mul i16 %tmp_10_2_1, %tmp_12_2_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 209 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch44 [
+    i2 0, label %branch42
+    i2 1, label %branch43
+  ]" [conv2d.cpp:16]
+ST_3 : Operation 210 [1/1] (0.00ns)   --->   "%a_load_2_2_phi = phi i8 [ %a_2_3_read, %branch43235 ], [ %a_2_4_read, %branch44237 ], [ %a_3_3_read, %branch381 ], [ %a_3_4_read, %branch483 ], [ %a_4_3_read, %branch43332 ], [ %a_4_4_read, %branch44334 ], [ %a_2_2_read, %branch42 ], [ %a_3_2_read, %branch43 ], [ %a_4_2_read, %branch44 ]" [conv2d.cpp:16]
+ST_3 : Operation 211 [1/1] (0.00ns)   --->   "%tmp_10_2_2 = sext i8 %a_load_2_2_phi to i16" [conv2d.cpp:16]
+ST_3 : Operation 212 [1/1] (0.00ns)   --->   "%tmp_12_2_2 = sext i8 %b_2_2_read to i16" [conv2d.cpp:16]
+ST_3 : Operation 213 [1/1] (2.82ns)   --->   "%tmp_13_2_2 = mul i16 %tmp_10_2_2, %tmp_12_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 214 [1/1] (1.72ns)   --->   "%tmp2 = add i16 %tmp_4, %tmp_13_0_1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 215 [1/1] (1.72ns)   --->   "%tmp3 = add i16 %tmp_13_0_2, %tmp_13_1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 216 [1/1] (2.73ns)   --->   "%tmp7 = add i16 %tmp_13_2_1, %tmp_13_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 217 [1/1] (1.72ns)   --->   "%tmp6 = add i16 %tmp7, %tmp_13_2" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.27> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 4> : 8.13ns
+ST_4 : Operation 218 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([8 x i8]* @Row_Col_str)"
+ST_4 : Operation 219 [1/1] (0.00ns)   --->   "%tmp_mid2_cast = zext i2 %tmp_mid2_v to i5" [conv2d.cpp:13]
+ST_4 : Operation 220 [1/1] (0.00ns)   --->   "%tmp = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_mid2_v, i2 0)" [conv2d.cpp:13]
+ST_4 : Operation 221 [1/1] (0.00ns)   --->   "%p_shl_cast = zext i4 %tmp to i5" [conv2d.cpp:13]
+ST_4 : Operation 222 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_2 = sub i5 %p_shl_cast, %tmp_mid2_cast" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 223 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_4 : Operation 224 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_4 : Operation 225 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [conv2d.cpp:12]
+ST_4 : Operation 226 [1/1] (0.00ns)   --->   "%tmp_3_cast = zext i2 %j_mid2 to i5" [conv2d.cpp:13]
+ST_4 : Operation 227 [1/1] (2.79ns) (root node of TernaryAdder)   --->   "%tmp_6 = add i5 %tmp_2, %tmp_3_cast" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 228 [1/1] (0.00ns)   --->   "%tmp_6_cast = sext i5 %tmp_6 to i64" [conv2d.cpp:13]
+ST_4 : Operation 229 [1/1] (0.00ns)   --->   "%res_addr = getelementptr [9 x i16]* %res, i64 0, i64 %tmp_6_cast" [conv2d.cpp:13]
+ST_4 : Operation 230 [1/1] (0.99ns)   --->   "switch i2 %tmp_mid2_v, label %branch2 [
+    i2 0, label %branch0
+    i2 1, label %branch1
+  ]" [conv2d.cpp:16]
+ST_4 : Operation 231 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp1 = add i16 %tmp3, %tmp2" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 232 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp5 = add i16 %tmp_13_1_1, %tmp_13_1_2" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 233 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp4 = add i16 %tmp6, %tmp5" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 234 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp_14_2_2 = add i16 %tmp4, %tmp1" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 235 [1/1] (1.75ns)   --->   "store i16 %tmp_14_2_2, i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ST_4 : Operation 236 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str3, i32 %tmp_5) nounwind" [conv2d.cpp:19]
+ST_4 : Operation 237 [1/1] (0.00ns)   --->   "br label %1"
+
+ <State 5> : 0.00ns
+ST_5 : Operation 238 [1/1] (0.00ns)   --->   "ret void" [conv2d.cpp:21]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.3ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [95]  (1.3 ns)
+
+ <State 2>: 3.48ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', conv2d.cpp:11) [97]  (0 ns)
+	'icmp' operation ('exitcond', conv2d.cpp:11) [105]  (0.894 ns)
+	'select' operation ('j_mid2', conv2d.cpp:11) [106]  (0.813 ns)
+	multiplexor before 'phi' operation ('a_load_0_0_phi', conv2d.cpp:16) with incoming values : ('a_0_1_read', conv2d.cpp:16) ('a_0_2_read', conv2d.cpp:16) ('a_1_2_read', conv2d.cpp:16) ('a_1_1_read', conv2d.cpp:16) ('a_1_0_read', conv2d.cpp:16) ('a_2_0_read', conv2d.cpp:16) ('a_2_1_read', conv2d.cpp:16) ('a_2_2_read', conv2d.cpp:16) ('a_0_0_read', conv2d.cpp:16) [140]  (1.77 ns)
+
+ <State 3>: 8.06ns
+The critical path consists of the following:
+	'phi' operation ('a_load_2_1_phi', conv2d.cpp:16) with incoming values : ('a_2_1_read', conv2d.cpp:16) ('a_2_2_read', conv2d.cpp:16) ('a_2_3_read', conv2d.cpp:16) ('a_3_2_read', conv2d.cpp:16) ('a_3_3_read', conv2d.cpp:16) ('a_3_1_read', conv2d.cpp:16) ('a_4_1_read', conv2d.cpp:16) ('a_4_2_read', conv2d.cpp:16) ('a_4_3_read', conv2d.cpp:16) [317]  (0 ns)
+	'mul' operation ('tmp_13_2_1', conv2d.cpp:16) [321]  (3.61 ns)
+	'add' operation ('tmp7', conv2d.cpp:16) [352]  (2.73 ns)
+	'add' operation ('tmp6', conv2d.cpp:16) [353]  (1.73 ns)
+
+ <State 4>: 8.13ns
+The critical path consists of the following:
+	'add' operation ('tmp5', conv2d.cpp:16) [351]  (0 ns)
+	'add' operation ('tmp4', conv2d.cpp:16) [354]  (3.19 ns)
+	'add' operation ('tmp_14_2_2', conv2d.cpp:16) [355]  (3.19 ns)
+	'store' operation (conv2d.cpp:16) of variable 'tmp_14_2_2', conv2d.cpp:16 on array 'res' [356]  (1.75 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

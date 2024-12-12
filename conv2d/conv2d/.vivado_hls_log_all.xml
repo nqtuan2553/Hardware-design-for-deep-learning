@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'conv2d_label0' does not exist in function 'conv2d'." projectName="conv2d" solutionName="solution7" date="2024-12-12T16:20:59.191+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:16) of variable 'tmp_14_2', conv2d.cpp:16 on array 'res_0' and 'load' operation ('res_0_load', conv2d.cpp:13) on array 'res_0'." projectName="conv2d" solutionName="solution2" date="2024-12-12T14:56:48.534+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:16) of variable 'tmp_14_1', conv2d.cpp:16 on array 'res_0' and 'load' operation ('res_0_load', conv2d.cpp:13) on array 'res_0'." projectName="conv2d" solutionName="solution2" date="2024-12-12T14:56:48.518+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:16) of variable 'tmp_2', conv2d.cpp:16 on array 'res_0' and 'load' operation ('res_0_load', conv2d.cpp:13) on array 'res_0'." projectName="conv2d" solutionName="solution2" date="2024-12-12T14:56:48.502+0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Col' (conv2d.cpp:11:48) in function 'conv2d' : &#xD;&#xA;&#xD;&#xA;the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop." projectName="conv2d" solutionName="solution2" date="2024-12-12T14:56:48.252+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_2_load_4', conv2d.cpp:16) on array 'a_2' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a_2'." projectName="conv2d" solutionName="solution6" date="2024-12-12T14:24:57.195+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_load', conv2d.cpp:16) on array 'a' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a'." projectName="conv2d" solutionName="solution9" date="2024-12-12T14:21:53.279+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xD;&#xA;&#x9;'mul' operation ('tmp_13_0_2', conv2d.cpp:18) (2.82 ns)&#xD;&#xA;&#x9;'add' operation ('tmp6', conv2d.cpp:18) (2.73 ns)&#xD;&#xA;&#x9;'add' operation ('tmp4', conv2d.cpp:18) (0 ns)&#xD;&#xA;&#x9;'add' operation ('tmp_14_0_2_2', conv2d.cpp:18) (3.19 ns)&#xD;&#xA;&#x9;'store' operation (conv2d.cpp:18) of variable 'tmp_14_0_2_2', conv2d.cpp:18 on array 'res' (1.75 ns)" projectName="conv2d" solutionName="solution8" date="2024-12-11T22:32:44.338+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (10.491ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="conv2d" solutionName="solution8" date="2024-12-11T22:32:44.325+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_load_2', conv2d.cpp:18) on array 'a' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a'." projectName="conv2d" solutionName="solution8" date="2024-12-11T22:32:44.295+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xD;&#xA;&#x9;'mul' operation ('tmp_7_1_1', conv2d.cpp:18) (2.82 ns)&#xD;&#xA;&#x9;'add' operation ('tmp_10_1_1', conv2d.cpp:18) (2.73 ns)&#xD;&#xA;&#x9;'add' operation ('tmp_10_1_1_1', conv2d.cpp:18) (2.73 ns)&#xD;&#xA;&#x9;'add' operation ('tmp_10_1_1_2', conv2d.cpp:18) (2.73 ns)" projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:30.720+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (11.01ns) exceeds the target (target clock period: 10ns, clock uncertainty: 1.25ns, effective delay budget: 8.75ns)." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:30.704+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'store' operation (conv2d.cpp:18) of variable 'tmp_10_1_2_2', conv2d.cpp:18 on array 'res_1' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'res_1'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:30.470+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_2_load_10', conv2d.cpp:18) on array 'a_2' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a_2'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:30.438+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('a_0_load', conv2d.cpp:18) on array 'a_0' due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'a_0'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:30.048+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:18) of variable 'tmp_10_0_1', conv2d.cpp:18 on array 'res_0' and 'store' operation (conv2d.cpp:15) of constant 0 on array 'res_0'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:27.246+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:18) of variable 'tmp_10_0_0_2', conv2d.cpp:18 on array 'res_0' and 'store' operation (conv2d.cpp:15) of constant 0 on array 'res_0'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:25.778+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:18) of variable 'tmp_10_0_0_1', conv2d.cpp:18 on array 'res_0' and 'store' operation (conv2d.cpp:15) of constant 0 on array 'res_0'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:25.747+0700" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (conv2d.cpp:18) of variable 'tmp_7', conv2d.cpp:18 on array 'res_0' and 'store' operation (conv2d.cpp:15) of constant 0 on array 'res_0'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:25.716+0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'Product2' (conv2d.cpp:17) because its parent loop or function is pipelined." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:24.544+0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'Product' (conv2d.cpp:16) because its parent loop or function is pipelined." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:24.528+0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'Col' (conv2d.cpp:13) because its parent loop or function is pipelined." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:24.497+0700" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'conv2d_label0' does not exist in function 'conv2d'." projectName="conv2d" solutionName="solution5" date="2024-12-05T15:53:21.559+0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

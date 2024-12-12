@@ -1,0 +1,4 @@
+conv2d_mux_255_8_bkb
+conv2d_mux_94_8_1_1
+conv2d_mac_muladdcud
+conv2d

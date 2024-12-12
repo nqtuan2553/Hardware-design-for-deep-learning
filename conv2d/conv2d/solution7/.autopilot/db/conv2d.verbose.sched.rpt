@@ -1,0 +1,316 @@
+
+
+================================================================
+== Vivado HLS Report for 'conv2d'
+================================================================
+* Date:           Thu Dec 12 16:21:01 2024
+
+* Version:        2018.1 (Build 2188600 on Wed Apr 04 19:04:02 MDT 2018)
+* Project:        conv2d
+* Solution:       solution7
+* Product family: zynq
+* Target device:  xc7z045ffg900-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.30|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  241|  241|  241|  241|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Row            |  240|  240|        80|          -|          -|     3|    no    |
+        | + Col           |   78|   78|        26|          -|          -|     3|    no    |
+        |  ++ Product     |   24|   24|         8|          -|          -|     3|    no    |
+        |   +++ Product2  |    6|    6|         2|          -|          -|     3|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond3)
+3 --> 
+	4  / (!exitcond2)
+	2  / (exitcond2)
+4 --> 
+	5  / (!exitcond1)
+	3  / (exitcond1)
+5 --> 
+	6  / (!exitcond)
+	4  / (exitcond)
+6 --> 
+	5  / true
+
+* FSM state operations: 
+
+ <State 1> : 1.30ns
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_4), !map !7"
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_3), !map !13"
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_2), !map !19"
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_1), !map !25"
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_4_0), !map !31"
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_4), !map !37"
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_3), !map !42"
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_2), !map !47"
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_1), !map !52"
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_3_0), !map !57"
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_4), !map !62"
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_3), !map !67"
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_2), !map !72"
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_1), !map !77"
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_2_0), !map !82"
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_4), !map !87"
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_3), !map !92"
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_2), !map !97"
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_1), !map !102"
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_1_0), !map !107"
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_4), !map !112"
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_3), !map !117"
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_2), !map !122"
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_1), !map !127"
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %a_0_0), !map !132"
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_2), !map !137"
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_1), !map !141"
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_2_0), !map !145"
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_2), !map !149"
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_1), !map !153"
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_1_0), !map !157"
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_2), !map !161"
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_1), !map !165"
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %b_0_0), !map !169"
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([9 x i16]* %res), !map !173"
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @conv2d_str) nounwind"
+ST_1 : Operation 43 [1/1] (1.30ns)   --->   "br label %1" [conv2d.cpp:9]
+
+ <State 2> : 1.52ns
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%i = phi i2 [ 0, %0 ], [ %i_1, %11 ]"
+ST_2 : Operation 45 [1/1] (0.89ns)   --->   "%exitcond3 = icmp eq i2 %i, -1" [conv2d.cpp:9]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"
+ST_2 : Operation 47 [1/1] (1.27ns)   --->   "%i_1 = add i2 %i, 1" [conv2d.cpp:9]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "br i1 %exitcond3, label %12, label %2" [conv2d.cpp:9]
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str2) nounwind" [conv2d.cpp:9]
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str2) nounwind" [conv2d.cpp:9]
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%tmp_cast = zext i2 %i to i5" [conv2d.cpp:9]
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_3 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i, i2 0)" [conv2d.cpp:9]
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%p_shl1_cast = zext i4 %tmp_3 to i5" [conv2d.cpp:13]
+ST_2 : Operation 54 [1/1] (1.52ns)   --->   "%tmp_11 = sub i5 %p_shl1_cast, %tmp_cast" [conv2d.cpp:13]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%tmp_1 = zext i2 %i to i3" [conv2d.cpp:9]
+ST_2 : Operation 56 [1/1] (1.30ns)   --->   "br label %3" [conv2d.cpp:11]
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "ret void" [conv2d.cpp:21]
+
+ <State 3> : 3.32ns
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "%j = phi i2 [ 0, %2 ], [ %j_1, %10 ]"
+ST_3 : Operation 59 [1/1] (0.89ns)   --->   "%exitcond2 = icmp eq i2 %j, -1" [conv2d.cpp:11]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"
+ST_3 : Operation 61 [1/1] (1.27ns)   --->   "%j_1 = add i2 %j, 1" [conv2d.cpp:11]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %11, label %4" [conv2d.cpp:11]
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%tmp_8 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_3 : Operation 65 [1/1] (0.00ns)   --->   "%tmp_3_cast = zext i2 %j to i5" [conv2d.cpp:13]
+ST_3 : Operation 66 [1/1] (1.56ns)   --->   "%tmp_22 = add i5 %tmp_11, %tmp_3_cast" [conv2d.cpp:13]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%tmp_23_cast = sext i5 %tmp_22 to i64" [conv2d.cpp:13]
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%res_addr = getelementptr [9 x i16]* %res, i64 0, i64 %tmp_23_cast" [conv2d.cpp:13]
+ST_3 : Operation 69 [1/1] (1.75ns)   --->   "store i16 0, i16* %res_addr, align 2" [conv2d.cpp:13]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ST_3 : Operation 70 [1/1] (0.00ns)   --->   "%tmp_4 = zext i2 %j to i3" [conv2d.cpp:11]
+ST_3 : Operation 71 [1/1] (1.30ns)   --->   "br label %5" [conv2d.cpp:14]
+ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str2, i32 %tmp_5) nounwind" [conv2d.cpp:20]
+ST_3 : Operation 73 [1/1] (0.00ns)   --->   "br label %1" [conv2d.cpp:9]
+
+ <State 4> : 1.52ns
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "%ki = phi i2 [ 0, %4 ], [ %ki_1, %9 ]"
+ST_4 : Operation 75 [1/1] (0.89ns)   --->   "%exitcond1 = icmp eq i2 %ki, -1" [conv2d.cpp:14]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 76 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"
+ST_4 : Operation 77 [1/1] (1.27ns)   --->   "%ki_1 = add i2 %ki, 1" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %10, label %6" [conv2d.cpp:14]
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([8 x i8]* @p_str4) nounwind" [conv2d.cpp:14]
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%tmp_9 = call i32 (...)* @_ssdm_op_SpecRegionBegin([8 x i8]* @p_str4) nounwind" [conv2d.cpp:14]
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%tmp_6 = zext i2 %ki to i3" [conv2d.cpp:14]
+ST_4 : Operation 82 [1/1] (1.27ns)   --->   "%tmp_7 = add i3 %tmp_6, %tmp_1" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%tmp_11_cast = zext i3 %tmp_7 to i4" [conv2d.cpp:14]
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "%p_shl5 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %tmp_7, i2 0)" [conv2d.cpp:14]
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%tmp_15 = zext i2 %ki to i4" [conv2d.cpp:14]
+ST_4 : Operation 86 [1/1] (0.00ns)   --->   "%p_shl = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %ki, i2 0)" [conv2d.cpp:14]
+ST_4 : Operation 87 [1/1] (1.52ns)   --->   "%tmp_16 = sub i4 %p_shl, %tmp_15" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 88 [1/1] (1.30ns)   --->   "br label %7" [conv2d.cpp:15]
+ST_4 : Operation 89 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str3, i32 %tmp_8) nounwind" [conv2d.cpp:19]
+ST_4 : Operation 90 [1/1] (0.00ns)   --->   "br label %3" [conv2d.cpp:11]
+
+ <State 5> : 6.84ns
+ST_5 : Operation 91 [1/1] (0.00ns)   --->   "%kj = phi i2 [ 0, %6 ], [ %kj_1, %8 ]"
+ST_5 : Operation 92 [1/1] (0.89ns)   --->   "%exitcond = icmp eq i2 %kj, -1" [conv2d.cpp:15]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 93 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind"
+ST_5 : Operation 94 [1/1] (1.27ns)   --->   "%kj_1 = add i2 %kj, 1" [conv2d.cpp:15]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 95 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %9, label %8" [conv2d.cpp:15]
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_s = zext i2 %kj to i3" [conv2d.cpp:15]
+ST_5 : Operation 97 [1/1] (1.27ns)   --->   "%tmp_2 = add i3 %tmp_s, %tmp_4" [conv2d.cpp:15]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 98 [1/1] (0.00ns)   --->   "%tmp_16_cast = zext i3 %tmp_2 to i4" [conv2d.cpp:15]
+ST_5 : Operation 99 [1/1] (1.39ns)   --->   "%tmp1 = add i4 %tmp_11_cast, %tmp_16_cast" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 100 [1/1] (0.00ns)   --->   "%tmp1_cast = zext i4 %tmp1 to i5" [conv2d.cpp:14]
+ST_5 : Operation 101 [1/1] (1.56ns)   --->   "%tmp_17 = add i5 %tmp1_cast, %p_shl5" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 102 [1/1] (0.00ns)   --->   "%a_0_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_0)"
+ST_5 : Operation 103 [1/1] (0.00ns)   --->   "%a_0_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_1)"
+ST_5 : Operation 104 [1/1] (0.00ns)   --->   "%a_0_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_2)"
+ST_5 : Operation 105 [1/1] (0.00ns)   --->   "%a_0_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_3)"
+ST_5 : Operation 106 [1/1] (0.00ns)   --->   "%a_0_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_0_4)"
+ST_5 : Operation 107 [1/1] (0.00ns)   --->   "%a_1_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_0)"
+ST_5 : Operation 108 [1/1] (0.00ns)   --->   "%a_1_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_1)"
+ST_5 : Operation 109 [1/1] (0.00ns)   --->   "%a_1_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_2)"
+ST_5 : Operation 110 [1/1] (0.00ns)   --->   "%a_1_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_3)"
+ST_5 : Operation 111 [1/1] (0.00ns)   --->   "%a_1_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_1_4)"
+ST_5 : Operation 112 [1/1] (0.00ns)   --->   "%a_2_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_0)"
+ST_5 : Operation 113 [1/1] (0.00ns)   --->   "%a_2_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_1)"
+ST_5 : Operation 114 [1/1] (0.00ns)   --->   "%a_2_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_2)"
+ST_5 : Operation 115 [1/1] (0.00ns)   --->   "%a_2_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_3)"
+ST_5 : Operation 116 [1/1] (0.00ns)   --->   "%a_2_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_2_4)"
+ST_5 : Operation 117 [1/1] (0.00ns)   --->   "%a_3_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_0)"
+ST_5 : Operation 118 [1/1] (0.00ns)   --->   "%a_3_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_1)"
+ST_5 : Operation 119 [1/1] (0.00ns)   --->   "%a_3_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_2)"
+ST_5 : Operation 120 [1/1] (0.00ns)   --->   "%a_3_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_3)"
+ST_5 : Operation 121 [1/1] (0.00ns)   --->   "%a_3_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_3_4)"
+ST_5 : Operation 122 [1/1] (0.00ns)   --->   "%a_4_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_0)"
+ST_5 : Operation 123 [1/1] (0.00ns)   --->   "%a_4_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_1)"
+ST_5 : Operation 124 [1/1] (0.00ns)   --->   "%a_4_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_2)"
+ST_5 : Operation 125 [1/1] (0.00ns)   --->   "%a_4_3_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_3)"
+ST_5 : Operation 126 [1/1] (0.00ns)   --->   "%a_4_4_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %a_4_4)"
+ST_5 : Operation 127 [1/1] (2.60ns)   --->   "%tmp_18 = call i8 @_ssdm_op_Mux.ap_auto.25i8.i5(i8 %a_0_0_read, i8 %a_0_1_read, i8 %a_0_2_read, i8 %a_0_3_read, i8 %a_0_4_read, i8 %a_1_0_read, i8 %a_1_1_read, i8 %a_1_2_read, i8 %a_1_3_read, i8 %a_1_4_read, i8 %a_2_0_read, i8 %a_2_1_read, i8 %a_2_2_read, i8 %a_2_3_read, i8 %a_2_4_read, i8 %a_3_0_read, i8 %a_3_1_read, i8 %a_3_2_read, i8 %a_3_3_read, i8 %a_3_4_read, i8 %a_4_0_read, i8 %a_4_1_read, i8 %a_4_2_read, i8 %a_4_3_read, i8 %a_4_4_read, i5 %tmp_17)" [conv2d.cpp:14]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.81> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%tmp_19 = zext i2 %kj to i4" [conv2d.cpp:15]
+ST_5 : Operation 129 [1/1] (1.52ns)   --->   "%tmp_20 = add i4 %tmp_16, %tmp_19" [conv2d.cpp:14]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 130 [1/1] (0.00ns)   --->   "%b_0_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_0)"
+ST_5 : Operation 131 [1/1] (0.00ns)   --->   "%b_0_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_1)"
+ST_5 : Operation 132 [1/1] (0.00ns)   --->   "%b_0_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_0_2)"
+ST_5 : Operation 133 [1/1] (0.00ns)   --->   "%b_1_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_0)"
+ST_5 : Operation 134 [1/1] (0.00ns)   --->   "%b_1_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_1)"
+ST_5 : Operation 135 [1/1] (0.00ns)   --->   "%b_1_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_1_2)"
+ST_5 : Operation 136 [1/1] (0.00ns)   --->   "%b_2_0_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_0)"
+ST_5 : Operation 137 [1/1] (0.00ns)   --->   "%b_2_1_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_1)"
+ST_5 : Operation 138 [1/1] (0.00ns)   --->   "%b_2_2_read = call i8 @_ssdm_op_Read.ap_auto.i8P(i8* %b_2_2)"
+ST_5 : Operation 139 [1/1] (1.81ns)   --->   "%tmp_21 = call i8 @_ssdm_op_Mux.ap_auto.9i8.i4(i8 %b_0_0_read, i8 %b_0_1_read, i8 %b_0_2_read, i8 %b_1_0_read, i8 %b_1_1_read, i8 %b_1_2_read, i8 %b_2_0_read, i8 %b_2_1_read, i8 %b_2_2_read, i4 %tmp_20)" [conv2d.cpp:14]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 1.81> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 140 [2/2] (1.75ns)   --->   "%res_load = load i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ST_5 : Operation 141 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecRegionEnd([8 x i8]* @p_str4, i32 %tmp_9) nounwind" [conv2d.cpp:18]
+ST_5 : Operation 142 [1/1] (0.00ns)   --->   "br label %5" [conv2d.cpp:14]
+
+ <State 6> : 7.30ns
+ST_6 : Operation 143 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str5) nounwind" [conv2d.cpp:15]
+ST_6 : Operation 144 [1/1] (0.00ns)   --->   "%tmp_10 = sext i8 %tmp_18 to i16" [conv2d.cpp:16]
+ST_6 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_12 = sext i8 %tmp_21 to i16" [conv2d.cpp:16]
+ST_6 : Operation 146 [1/1] (2.82ns)   --->   "%tmp_13 = mul i16 %tmp_12, %tmp_10" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 147 [1/2] (1.75ns)   --->   "%res_load = load i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ST_6 : Operation 148 [1/1] (2.73ns)   --->   "%tmp_14 = add i16 %res_load, %tmp_13" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 149 [1/1] (1.75ns)   --->   "store i16 %tmp_14, i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ST_6 : Operation 150 [1/1] (0.00ns)   --->   "br label %7" [conv2d.cpp:15]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.3ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', conv2d.cpp:9) [74]  (1.3 ns)
+
+ <State 2>: 1.52ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', conv2d.cpp:9) [74]  (0 ns)
+	'sub' operation ('tmp_11', conv2d.cpp:13) [85]  (1.52 ns)
+
+ <State 3>: 3.32ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', conv2d.cpp:11) [89]  (0 ns)
+	'add' operation ('tmp_22', conv2d.cpp:13) [98]  (1.57 ns)
+	'getelementptr' operation ('res_addr', conv2d.cpp:13) [100]  (0 ns)
+	'store' operation (conv2d.cpp:13) of constant 0 on array 'res' [101]  (1.75 ns)
+
+ <State 4>: 1.52ns
+The critical path consists of the following:
+	'phi' operation ('ki') with incoming values : ('ki', conv2d.cpp:14) [105]  (0 ns)
+	'sub' operation ('tmp_16', conv2d.cpp:14) [119]  (1.52 ns)
+
+ <State 5>: 6.84ns
+The critical path consists of the following:
+	'phi' operation ('kj') with incoming values : ('kj', conv2d.cpp:15) [122]  (0 ns)
+	'add' operation ('tmp_2', conv2d.cpp:15) [130]  (1.27 ns)
+	'add' operation ('tmp1', conv2d.cpp:14) [132]  (1.4 ns)
+	'add' operation ('tmp_17', conv2d.cpp:14) [134]  (1.57 ns)
+	'mux' operation ('tmp_18', conv2d.cpp:14) [160]  (2.6 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	'mul' operation ('tmp_13', conv2d.cpp:16) [175]  (2.82 ns)
+	'add' operation ('tmp_14', conv2d.cpp:16) [177]  (2.73 ns)
+	'store' operation (conv2d.cpp:16) of variable 'tmp_14', conv2d.cpp:16 on array 'res' [178]  (1.75 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
