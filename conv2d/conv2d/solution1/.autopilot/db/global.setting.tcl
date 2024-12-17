@@ -44,12 +44,12 @@ set TargetInfo "xc7z020:clg484:-1"
 set SourceFiles {sc {} c ../../conv2d.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {E:/vivado/conv2d/conv2d/solution1/solution1.directive}
-set TBFiles {verilog ../../conv2d_test.cpp bc ../../conv2d_test.cpp vhdl ../../conv2d_test.cpp sc ../../conv2d_test.cpp cas ../../conv2d_test.cpp c {}}
+set TBFiles {verilog {../../conv2d_test.cpp ../../conv2d.h} bc {../../conv2d_test.cpp ../../conv2d.h} sc {../../conv2d_test.cpp ../../conv2d.h} vhdl {../../conv2d_test.cpp ../../conv2d.h} c {} cas {../../conv2d_test.cpp ../../conv2d.h}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}

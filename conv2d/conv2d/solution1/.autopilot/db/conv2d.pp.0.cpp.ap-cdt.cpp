@@ -1830,16 +1830,14 @@ void conv2d(
       kernel b[3][3],
       result_t res[5 - 3 + 1][5 - 3 + 1])
 {_ssdm_SpecArrayDimSize(a,5);_ssdm_SpecArrayDimSize(res,5 - 3 + 1);_ssdm_SpecArrayDimSize(b,3);
-  int output_cols = 5 - 3 + 1;
-  int output_rows = 5 - 3 + 1;
 #pragma empty_line
-  Row: for(int i = 0; i < output_rows; i++) {
+  Row: for(short i = 0; i < 5 - 3 + 1; i++) {
 #pragma empty_line
-    Col: for(int j = 0; j < output_cols; j++) {
+    Col: for(short j = 0; j < 5 - 3 + 1; j++) {
 #pragma empty_line
       res[i][j] = 0;
-      Product: for(int ki = 0; ki < 3; ki++) {
-                  for(int kj = 0; kj < 3; kj++) {
+      Product: for(short ki = 0; ki < 3; ki++) {
+                  Product2: for(short kj = 0; kj < 3; kj++) {
                     res[i][j] += a[i+ki][j+kj] * b[ki][kj];
         }
       }

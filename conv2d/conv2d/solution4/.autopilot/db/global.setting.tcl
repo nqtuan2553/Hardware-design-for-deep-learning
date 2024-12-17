@@ -43,19 +43,19 @@ set SCTraceOption "all"
 set TargetInfo "xc7z045:ffg900:-2"
 set SourceFiles {sc {} c ../../conv2d.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {E:/vivado/conv2d/conv2d/solution11/solution11.directive}
-set TBFiles {verilog ../../conv2d_test.cpp bc ../../conv2d_test.cpp vhdl ../../conv2d_test.cpp sc ../../conv2d_test.cpp cas ../../conv2d_test.cpp c {}}
+set DirectiveFile {E:/vivado/conv2d/conv2d/solution4/solution4.directive}
+set TBFiles {verilog {../../conv2d_test.cpp ../../conv2d.h} bc {../../conv2d_test.cpp ../../conv2d.h} sc {../../conv2d_test.cpp ../../conv2d.h} vhdl {../../conv2d_test.cpp ../../conv2d.h} c {} cas {../../conv2d_test.cpp ../../conv2d.h}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
 set DefaultPlatform "DefaultPlatform"
 set TBTVFileNotFound ""
 set AppFile "../vivado_hls.app"
-set ApsFile "solution11.aps"
+set ApsFile "solution4.aps"
 set AvePath "../.."
 set HPFPO "0"

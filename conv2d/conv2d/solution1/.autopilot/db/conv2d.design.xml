@@ -41,13 +41,13 @@
 <Latency>33</Latency>
 <IterationLatency>11</IterationLatency>
 <PipelineDepth>11</PipelineDepth>
-<Product.1>
-<Name>Product.1</Name>
+<Product2>
+<Name>Product2</Name>
 <TripCount>3</TripCount>
 <Latency>9</Latency>
 <IterationLatency>3</IterationLatency>
 <PipelineDepth>3</PipelineDepth>
-</Product.1>
+</Product2>
 </Product>
 </Col>
 </Row>

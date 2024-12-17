@@ -1830,19 +1830,10 @@ void conv2d(
       kernel b[3][3],
       result_t res[5 - 3 + 1][5 - 3 + 1])
 {_ssdm_SpecArrayDimSize(a,5);_ssdm_SpecArrayDimSize(res,5 - 3 + 1);_ssdm_SpecArrayDimSize(b,3);
-#pragma HLS ARRAY_PARTITION variable=b complete dim=0
-#7 "conv2d.cpp"
-
-#pragma HLS ARRAY_PARTITION variable=a complete dim=0
-#7 "conv2d.cpp"
-
 
   Row: for(short i = 0; i < 5 - 3 + 1; i++) {
 
     Col: for(short j = 0; j < 5 - 3 + 1; j++) {
-#pragma HLS PIPELINE II=1 off
-#11 "conv2d.cpp"
-
 
       res[i][j] = 0;
       Product: for(short ki = 0; ki < 3; ki++) {

@@ -1,0 +1,80 @@
+{
+{4,3,4}
+{2,4,3}
+{2,3,4}
+}
+Test passed.
+
+E:\vivado\conv2d\conv2d\solution7\sim\verilog>call E:/Xilinx/Vivado/2018.1/bin/xelab xil_defaultlib.apatb_conv2d_top glbl -prj conv2d.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver --initfile "E:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s conv2d  
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "E:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.1
+Copyright 1986-1999, 2001-2017 Xilinx, Inc. All Rights Reserved.
+Running: E:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_conv2d_top glbl -prj conv2d.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver --initfile E:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s conv2d 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/AESL_automem_a.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_a
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/AESL_automem_b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_b
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/AESL_automem_res.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_res
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/conv2d.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_conv2d_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/conv2d.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv2d
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/vivado/conv2d/conv2d/solution7/sim/verilog/conv2d_mac_muladdbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv2d_mac_muladdbkb_DSP48_0
+INFO: [VRFC 10-311] analyzing module conv2d_mac_muladdbkb
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.conv2d_mac_muladdbkb_DSP48_0
+Compiling module xil_defaultlib.conv2d_mac_muladdbkb(ID=1,NUM_ST...
+Compiling module xil_defaultlib.conv2d
+Compiling module xil_defaultlib.AESL_automem_a
+Compiling module xil_defaultlib.AESL_automem_b
+Compiling module xil_defaultlib.AESL_automem_res
+Compiling module xil_defaultlib.apatb_conv2d_top
+Compiling module work.glbl
+Built simulation snapshot conv2d
+
+****** Webtalk v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source E:/vivado/conv2d/conv2d/solution7/sim/verilog/xsim.dir/conv2d/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Dec 17 22:20:43 2024...
+
+****** xsim v2018.1 (64-bit)
+  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/conv2d/xsim_script.tcl
+# xsim {conv2d} -autoloadwcfg -tclbatch {conv2d.tcl}
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+source conv2d.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [100.00%] @ "3365000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 3405 ns : File "E:/vivado/conv2d/conv2d/solution7/sim/verilog/conv2d.autotb.v" Line 322
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Dec 17 22:20:51 2024...
+{
+{4,3,4}
+{2,4,3}
+{2,3,4}
+}
+Test passed.

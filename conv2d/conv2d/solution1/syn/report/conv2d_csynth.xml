@@ -40,11 +40,11 @@
 <TripCount>3</TripCount>
 <Latency>33</Latency>
 <IterationLatency>11</IterationLatency>
-<Product.1>
+<Product2>
 <TripCount>3</TripCount>
 <Latency>9</Latency>
 <IterationLatency>3</IterationLatency>
-</Product.1>
+</Product2>
 </Product>
 </Col>
 </Row>

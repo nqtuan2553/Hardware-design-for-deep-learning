@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Dec 17 21:03:52 2024
+# Process ID: 16780
+# Current directory: E:/vivado/conv2d/conv2d/solution1/sim/vhdl
+# Command line: wbtcv.exe -mode batch -source E:/vivado/conv2d/conv2d/solution1/sim/vhdl/xsim.dir/conv2d/webtalk/xsim_webtalk.tcl -notrace
+# Log file: E:/vivado/conv2d/conv2d/solution1/sim/vhdl/webtalk.log
+# Journal file: E:/vivado/conv2d/conv2d/solution1/sim/vhdl\webtalk.jou
+#-----------------------------------------------------------
+source E:/vivado/conv2d/conv2d/solution1/sim/vhdl/xsim.dir/conv2d/webtalk/xsim_webtalk.tcl -notrace

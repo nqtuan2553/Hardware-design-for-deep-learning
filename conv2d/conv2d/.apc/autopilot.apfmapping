@@ -4,6 +4,7 @@
     <originFiles name="conv2d.cpp" path="E:\vivado\conv2d\conv2d.cpp"/>
   </source>
   <testbench>
+    <originFiles name="conv2d.h" path="E:\vivado\conv2d\conv2d.h"/>
     <originFiles name="conv2d_test.cpp" path="E:\vivado\conv2d\conv2d_test.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

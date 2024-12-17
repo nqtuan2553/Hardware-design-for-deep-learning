@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# xsim v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Dec 17 21:03:44 2024
+# Process ID: 11348
+# Current directory: E:/vivado/conv2d/conv2d/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/conv2d/xsim_script.tcl}
+# Log file: E:/vivado/conv2d/conv2d/solution1/sim/vhdl/xsim.log
+# Journal file: E:/vivado/conv2d/conv2d/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/conv2d/xsim_script.tcl
+# xsim {conv2d} -autoloadwcfg -tclbatch {conv2d.tcl}
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+source conv2d.tcl
+## run all
+Note: simulation done!
+Time: 3405 ns  Iteration: 1  Process: /apatb_conv2d_top/generate_sim_done_proc  File: E:/vivado/conv2d/conv2d/solution1/sim/vhdl/conv2d.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 3405 ns  Iteration: 1  Process: /apatb_conv2d_top/generate_sim_done_proc  File: E:/vivado/conv2d/conv2d/solution1/sim/vhdl/conv2d.autotb.vhd
+$finish called at time : 3405 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Dec 17 21:03:53 2024...

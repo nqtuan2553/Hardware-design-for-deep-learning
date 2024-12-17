@@ -3,6 +3,7 @@ target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f3
 target triple = "x86_64-w64-mingw32"
 
 @conv2d_str = internal unnamed_addr constant [7 x i8] c"conv2d\00"
+@p_str3 = private unnamed_addr constant [9 x i8] c"Product2\00", align 1
 @p_str2 = private unnamed_addr constant [8 x i8] c"Product\00", align 1
 @p_str1 = private unnamed_addr constant [4 x i8] c"Col\00", align 1
 @p_str = private unnamed_addr constant [4 x i8] c"Row\00", align 1
@@ -18,7 +19,6 @@ define void @conv2d([25 x i8]* %a, [9 x i8]* %b, [9 x i16]* %res) nounwind uwtab
 
 ; <label>:1                                       ; preds = %11, %0
   %i = phi i2 [ 0, %0 ], [ %i_1, %11 ]
-  %i_cast = zext i2 %i to i3
   %exitcond3 = icmp eq i2 %i, -1
   %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind
   %i_1 = add i2 %i, 1
@@ -26,16 +26,16 @@ define void @conv2d([25 x i8]* %a, [9 x i8]* %b, [9 x i16]* %res) nounwind uwtab
 
 ; <label>:2                                       ; preds = %1
   call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str) nounwind
-  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str) nounwind
+  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str) nounwind
   %tmp_cast = zext i2 %i to i5
-  %tmp_2 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i, i2 0)
-  %p_shl_cast = zext i4 %tmp_2 to i5
+  %tmp_3 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %i, i2 0)
+  %p_shl_cast = zext i4 %tmp_3 to i5
   %tmp_5 = sub i5 %p_shl_cast, %tmp_cast
+  %tmp_1_cast = zext i2 %i to i3
   br label %3
 
 ; <label>:3                                       ; preds = %10, %2
   %j = phi i2 [ 0, %2 ], [ %j_1, %10 ]
-  %j_cast = zext i2 %j to i3
   %exitcond2 = icmp eq i2 %j, -1
   %empty_2 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind
   %j_1 = add i2 %j, 1
@@ -43,17 +43,17 @@ define void @conv2d([25 x i8]* %a, [9 x i8]* %b, [9 x i16]* %res) nounwind uwtab
 
 ; <label>:4                                       ; preds = %3
   call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str1) nounwind
-  %tmp_6 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str1) nounwind
-  %tmp_2_cast = zext i2 %j to i5
-  %tmp_9 = add i5 %tmp_5, %tmp_2_cast
-  %tmp_16_cast = sext i5 %tmp_9 to i64
+  %tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str1) nounwind
+  %tmp_3_cast = zext i2 %j to i5
+  %tmp_8 = add i5 %tmp_5, %tmp_3_cast
+  %tmp_16_cast = sext i5 %tmp_8 to i64
   %res_addr = getelementptr [9 x i16]* %res, i64 0, i64 %tmp_16_cast
   store i16 0, i16* %res_addr, align 2
+  %tmp_4_cast = zext i2 %j to i3
   br label %5
 
 ; <label>:5                                       ; preds = %9, %4
   %ki = phi i2 [ 0, %4 ], [ %ki_1, %9 ]
-  %ki_cast = zext i2 %ki to i3
   %exitcond1 = icmp eq i2 %ki, -1
   %empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind
   %ki_1 = add i2 %ki, 1
@@ -61,56 +61,58 @@ define void @conv2d([25 x i8]* %a, [9 x i8]* %b, [9 x i16]* %res) nounwind uwtab
 
 ; <label>:6                                       ; preds = %5
   call void (...)* @_ssdm_op_SpecLoopName([8 x i8]* @p_str2) nounwind
-  %tmp_11 = call i32 (...)* @_ssdm_op_SpecRegionBegin([8 x i8]* @p_str2) nounwind
-  %tmp_4 = add i3 %ki_cast, %i_cast
-  %tmp_5_cast = zext i3 %tmp_4 to i6
-  %tmp_12 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %tmp_4, i2 0)
-  %p_shl2_cast = zext i5 %tmp_12 to i6
-  %tmp_13 = add i6 %tmp_5_cast, %p_shl2_cast
-  %tmp_6_cast = zext i2 %ki to i5
+  %tmp_4 = call i32 (...)* @_ssdm_op_SpecRegionBegin([8 x i8]* @p_str2) nounwind
+  %tmp_6_cast = zext i2 %ki to i3
+  %tmp_7 = add i3 %tmp_6_cast, %tmp_1_cast
+  %tmp_8_cast = zext i3 %tmp_7 to i6
+  %tmp_9 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %tmp_7, i2 0)
+  %p_shl2_cast = zext i5 %tmp_9 to i6
+  %tmp_10 = add i6 %tmp_8_cast, %p_shl2_cast
+  %tmp_9_cast = zext i2 %ki to i5
   %tmp_14 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %ki, i2 0)
   %p_shl1_cast = zext i4 %tmp_14 to i5
-  %tmp_15 = sub i5 %p_shl1_cast, %tmp_6_cast
+  %tmp_15 = sub i5 %p_shl1_cast, %tmp_9_cast
   br label %7
 
 ; <label>:7                                       ; preds = %8, %6
   %kj = phi i2 [ 0, %6 ], [ %kj_1, %8 ]
-  %kj_cast = zext i2 %kj to i3
   %exitcond = icmp eq i2 %kj, -1
   %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3) nounwind
   %kj_1 = add i2 %kj, 1
   br i1 %exitcond, label %9, label %8
 
 ; <label>:8                                       ; preds = %7
-  %tmp_8 = add i3 %kj_cast, %j_cast
-  %tmp_9_cast = zext i3 %tmp_8 to i6
-  %tmp_16 = add i6 %tmp_13, %tmp_9_cast
+  call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str3) nounwind
+  %tmp_cast_5 = zext i2 %kj to i3
+  %tmp_2 = add i3 %tmp_cast_5, %tmp_4_cast
+  %tmp_5_cast = zext i3 %tmp_2 to i6
+  %tmp_16 = add i6 %tmp_10, %tmp_5_cast
   %tmp_21_cast = zext i6 %tmp_16 to i64
   %a_addr = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_21_cast
   %a_load = load i8* %a_addr, align 1
-  %tmp_s = sext i8 %a_load to i16
-  %tmp_1_cast = zext i2 %kj to i5
-  %tmp_17 = add i5 %tmp_15, %tmp_1_cast
+  %tmp_6 = sext i8 %a_load to i16
+  %tmp_10_cast = zext i2 %kj to i5
+  %tmp_17 = add i5 %tmp_15, %tmp_10_cast
   %tmp_22_cast = sext i5 %tmp_17 to i64
   %b_addr = getelementptr [9 x i8]* %b, i64 0, i64 %tmp_22_cast
   %b_load = load i8* %b_addr, align 1
-  %tmp_3 = sext i8 %b_load to i16
-  %tmp_7 = mul i16 %tmp_3, %tmp_s
+  %tmp_11 = sext i8 %b_load to i16
+  %tmp_12 = mul i16 %tmp_11, %tmp_6
   %res_load = load i16* %res_addr, align 2
-  %tmp_10 = add i16 %tmp_7, %res_load
-  store i16 %tmp_10, i16* %res_addr, align 2
+  %tmp_13 = add i16 %tmp_12, %res_load
+  store i16 %tmp_13, i16* %res_addr, align 2
   br label %7
 
 ; <label>:9                                       ; preds = %7
-  %empty_5 = call i32 (...)* @_ssdm_op_SpecRegionEnd([8 x i8]* @p_str2, i32 %tmp_11) nounwind
+  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([8 x i8]* @p_str2, i32 %tmp_4) nounwind
   br label %5
 
 ; <label>:10                                      ; preds = %5
-  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str1, i32 %tmp_6) nounwind
+  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str1, i32 %tmp_1) nounwind
   br label %3
 
 ; <label>:11                                      ; preds = %3
-  %empty_7 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str, i32 %tmp_1) nounwind
+  %empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str, i32 %tmp_s) nounwind
   br label %1
 
 ; <label>:12                                      ; preds = %1
@@ -150,19 +152,19 @@ entry:
 define weak i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3, i2) nounwind readnone {
 entry:
   %empty = zext i3 %0 to i5
-  %empty_8 = zext i2 %1 to i5
-  %empty_9 = shl i5 %empty, 2
-  %empty_10 = or i5 %empty_9, %empty_8
-  ret i5 %empty_10
+  %empty_9 = zext i2 %1 to i5
+  %empty_10 = shl i5 %empty, 2
+  %empty_11 = or i5 %empty_10, %empty_9
+  ret i5 %empty_11
 }
 
 define weak i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2, i2) nounwind readnone {
 entry:
   %empty = zext i2 %0 to i4
-  %empty_11 = zext i2 %1 to i4
-  %empty_12 = shl i4 %empty, 2
-  %empty_13 = or i4 %empty_12, %empty_11
-  ret i4 %empty_13
+  %empty_12 = zext i2 %1 to i4
+  %empty_13 = shl i4 %empty, 2
+  %empty_14 = or i4 %empty_13, %empty_12
+  ret i4 %empty_14
 }
 
 !opencl.kernels = !{!0}

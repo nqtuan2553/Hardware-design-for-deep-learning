@@ -1830,19 +1830,10 @@ void conv2d(
       kernel b[3][3],
       result_t res[5 - 3 + 1][5 - 3 + 1])
 {_ssdm_SpecArrayDimSize(a,5);_ssdm_SpecArrayDimSize(res,5 - 3 + 1);_ssdm_SpecArrayDimSize(b,3);
-_ssdm_SpecArrayPartition( b, 0, "COMPLETE", 0, "");
-#7 "conv2d.cpp"
-
-_ssdm_SpecArrayPartition( a, 0, "COMPLETE", 0, "");
-#7 "conv2d.cpp"
-
 
   Row: for(short i = 0; i < 5 - 3 + 1; i++) {
 
     Col: for(short j = 0; j < 5 - 3 + 1; j++) {
-_ssdm_op_SpecPipeline(0, 0, 0, 1, "");
-#11 "conv2d.cpp"
-
 
       res[i][j] = 0;
       Product: for(short ki = 0; ki < 3; ki++) {

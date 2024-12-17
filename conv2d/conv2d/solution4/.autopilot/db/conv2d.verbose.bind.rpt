@@ -3,11 +3,11 @@
 ================================================================
 == Vivado HLS Report for 'conv2d'
 ================================================================
-* Date:           Thu Dec 12 14:51:19 2024
+* Date:           Tue Dec 17 21:47:53 2024
 
 * Version:        2018.1 (Build 2188600 on Wed Apr 04 19:04:02 MDT 2018)
 * Project:        conv2d
-* Solution:       solution11
+* Solution:       solution4
 * Product family: zynq
 * Target device:  xc7z045ffg900-2
 

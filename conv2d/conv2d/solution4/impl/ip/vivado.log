@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Dec 17 21:49:33 2024
+# Process ID: 17940
+# Current directory: E:/vivado/conv2d/conv2d/solution4/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: E:/vivado/conv2d/conv2d/solution4/impl/ip/vivado.log
+# Journal file: E:/vivado/conv2d/conv2d/solution4/impl/ip\vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+bad lexical cast: source type value could not be interpreted as target
+    while executing
+"rdi::set_property core_revision 2412172149 {component component_1}"
+    invoked from within
+"set_property core_revision $Revision $core"
+    (file "run_ippack.tcl" line 831)
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 17 21:49:41 2024...

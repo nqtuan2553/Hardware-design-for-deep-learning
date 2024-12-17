@@ -1,8 +1,8 @@
 set C_TypeInfoList {{ 
 "conv2d" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"a": [[], {"array": [ {"array": ["0", [5]]}, [5]]}] }, {"b": [[], {"array": [ {"array": ["1", [3]]}, [3]]}] }, {"res": [[], {"array": [ {"array": ["2", [3]]}, [3]]}] }],[],""], 
-"0": [ "mat_a_t", {"typedef": [[[], {"scalar": "char"}],""]}], 
+"2": [ "result_t", {"typedef": [[[], {"scalar": "short"}],""]}], 
 "1": [ "kernel", {"typedef": [[[], {"scalar": "char"}],""]}], 
-"2": [ "result_t", {"typedef": [[[], {"scalar": "short"}],""]}]
+"0": [ "mat_a_t", {"typedef": [[[], {"scalar": "char"}],""]}]
 }}
 set moduleName conv2d
 set isTaskLevelControl 1

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message prefix="[IMPL 213-8]" severity="INFO" keynum="IMPL_8_1776" content="Exporting RTL as a Vivado IP." tag=""/>
+	<Message prefix="[IMPL 213-28]" severity="ERROR" keynum="IMPL_28_1653" content="Failed to generate IP." tag=""/>
+	<Message prefix="[HLS 200-150]" severity="INFO" keynum="11" content="command &apos;ap_source&apos; returned error code
+    while executing
+&quot;source E:/vivado/conv2d/conv2d/solution4/export.tcl&quot;
+    invoked from within
+&quot;hls::main E:/vivado/conv2d/conv2d/solution4/export.tcl&quot;
+    (&quot;uplevel&quot; body line 1)
+    invoked from within
+&quot;uplevel 1 hls::main {*}$args&quot;
+    (procedure &quot;hls_proc&quot; line 5)
+    invoked from within
+&quot;hls_proc $argv&quot;" tag=""/>
+</Messages>

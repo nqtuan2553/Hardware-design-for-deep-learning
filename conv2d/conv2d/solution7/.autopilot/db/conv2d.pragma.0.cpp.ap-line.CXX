@@ -87,6 +87,3 @@
 #pragma line 5 "./conv2d.h" 2 ::: 1803
 #pragma line 14 "./conv2d.h" ::: 1805
 #pragma line 2 "conv2d.cpp" 2 ::: 1815
-#pragma line 7 "conv2d.cpp" ::: 1823
-#pragma line 7 "conv2d.cpp" ::: 1826
-#pragma line 11 "conv2d.cpp" ::: 1833

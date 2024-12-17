@@ -42,6 +42,11 @@
 			<location>E:/vivado/conv2d/conv2d/solution1/.tcls</location>
 		</link>
 		<link>
+			<name>solution10/constraints</name>
+			<type>2</type>
+			<location>E:/vivado/conv2d/conv2d/solution10/.tcls</location>
+		</link>
+		<link>
 			<name>solution2/constraints</name>
 			<type>2</type>
 			<location>E:/vivado/conv2d/conv2d/solution2/.tcls</location>
@@ -87,6 +92,11 @@
 			<location>E:/vivado/conv2d/conv2d.cpp</location>
 		</link>
 		<link>
+			<name>testbench/conv2d.h</name>
+			<type>1</type>
+			<location>E:/vivado/conv2d/conv2d.h</location>
+		</link>
+		<link>
 			<name>testbench/conv2d_test.cpp</name>
 			<type>1</type>
 			<location>E:/vivado/conv2d/conv2d_test.cpp</location>
@@ -105,6 +115,21 @@
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
 			<location>E:/vivado/conv2d/conv2d/solution1/script.tcl</location>
+		</link>
+		<link>
+			<name>solution10/constraints/.xml.directive</name>
+			<type>1</type>
+			<location>E:/vivado/conv2d/conv2d/solution10/solution10.directive</location>
+		</link>
+		<link>
+			<name>solution10/constraints/directives.tcl</name>
+			<type>1</type>
+			<location>E:/vivado/conv2d/conv2d/solution10/directives.tcl</location>
+		</link>
+		<link>
+			<name>solution10/constraints/script.tcl</name>
+			<type>1</type>
+			<location>E:/vivado/conv2d/conv2d/solution10/script.tcl</location>
 		</link>
 		<link>
 			<name>solution2/constraints/.xml.directive</name>

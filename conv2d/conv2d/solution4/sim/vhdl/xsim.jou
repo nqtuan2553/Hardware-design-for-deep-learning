@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Tue Dec 17 21:49:06 2024
+# Process ID: 19072
+# Current directory: E:/vivado/conv2d/conv2d/solution4/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/conv2d/xsim_script.tcl}
+# Log file: E:/vivado/conv2d/conv2d/solution4/sim/vhdl/xsim.log
+# Journal file: E:/vivado/conv2d/conv2d/solution4/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/conv2d/xsim_script.tcl
+source conv2d.tcl

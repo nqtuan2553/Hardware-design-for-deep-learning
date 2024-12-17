@@ -1,0 +1,9 @@
+vhdl xil_defaultlib "AESL_sim_pkg.vhd"
+sv work "glbl.v"
+vhdl xil_defaultlib "AESL_automem_a.vhd"
+vhdl xil_defaultlib "AESL_automem_b.vhd"
+vhdl xil_defaultlib "AESL_automem_res.vhd"
+vhdl xil_defaultlib "conv2d.autotb.vhd"
+vhdl xil_defaultlib "conv2d.vhd"
+vhdl xil_defaultlib "conv2d_mac_muladdbkb.vhd"
+
