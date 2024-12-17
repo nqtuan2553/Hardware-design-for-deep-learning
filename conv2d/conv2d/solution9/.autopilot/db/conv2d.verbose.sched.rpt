@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'conv2d'
 ================================================================
-* Date:           Thu Dec 12 14:21:53 2024
+* Date:           Thu Dec 12 17:02:45 2024
 
 * Version:        2018.1 (Build 2188600 on Wed Apr 04 19:04:02 MDT 2018)
 * Project:        conv2d
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      8.42|        1.25|
+    |ap_clk  |  10.00|     10.46|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   48|   48|   48|   48|   none  |
+    |  453|  453|  453|  453|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |           |  Latency  | Iteration|  Initiation Interval  | Trip |          |
         | Loop Name | min | max |  Latency |  achieved |   target  | Count| Pipelined|
         +-----------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Row_Col  |   46|   46|         7|          5|          1|     9|    yes   |
+        |- Row_Col  |  451|  451|        20|         18|          1|    25|    yes   |
         +-----------+-----+-----+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -67,22 +67,22 @@ HasImplIP: 0
 IsGatedGlobalClock: 0
 
 + Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 5, depth = 7
+  * Pipeline-0: initiation interval (II) = 18, depth = 20
 
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 9
+* Number of FSM states : 22
 * Pipeline : 1
-  Pipeline-0 : II = 5, D = 7, States = { 2 3 4 5 6 7 8 }
+  Pipeline-0 : II = 18, D = 20, States = { 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
 	2  / true
 2 --> 
-	9  / (exitcond_flatten)
+	22  / (exitcond_flatten)
 	3  / (!exitcond_flatten)
 3 --> 
 	4  / true
@@ -95,190 +95,606 @@ IsGatedGlobalClock: 0
 7 --> 
 	8  / true
 8 --> 
-	2  / true
+	9  / true
 9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	2  / true
+22 --> 
 
 * FSM state operations: 
 
  <State 1> : 1.30ns
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3 x i8]* %b_2), !map !7"
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3 x i8]* %b_1), !map !14"
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([3 x i8]* %b_0), !map !20"
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([25 x i8]* %a), !map !26"
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([9 x i16]* %res), !map !32"
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @conv2d_str) nounwind"
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%b_0_addr = getelementptr [3 x i8]* %b_0, i64 0, i64 0"
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%b_1_addr = getelementptr [3 x i8]* %b_1, i64 0, i64 0"
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%b_2_addr = getelementptr [3 x i8]* %b_2, i64 0, i64 0"
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%b_0_addr_1 = getelementptr [3 x i8]* %b_0, i64 0, i64 1"
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%b_1_addr_1 = getelementptr [3 x i8]* %b_1, i64 0, i64 1"
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%b_2_addr_1 = getelementptr [3 x i8]* %b_2, i64 0, i64 1"
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%b_0_addr_2 = getelementptr [3 x i8]* %b_0, i64 0, i64 2"
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%b_1_addr_2 = getelementptr [3 x i8]* %b_1, i64 0, i64 2"
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%b_2_addr_2 = getelementptr [3 x i8]* %b_2, i64 0, i64 2"
-ST_1 : Operation 25 [1/1] (1.30ns)   --->   "br label %1" [conv2d.cpp:9]
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_5), !map !7"
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_4), !map !14"
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_3), !map !20"
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_2), !map !26"
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_1), !map !32"
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([6 x i8]* %b_0), !map !38"
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([100 x i8]* %a), !map !44"
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([25 x i16]* %res), !map !50"
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @conv2d_str) nounwind"
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%b_0_addr = getelementptr [6 x i8]* %b_0, i64 0, i64 0"
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%b_1_addr = getelementptr [6 x i8]* %b_1, i64 0, i64 0"
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%b_2_addr = getelementptr [6 x i8]* %b_2, i64 0, i64 0"
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%b_3_addr = getelementptr [6 x i8]* %b_3, i64 0, i64 0"
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%b_4_addr = getelementptr [6 x i8]* %b_4, i64 0, i64 0"
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%b_5_addr = getelementptr [6 x i8]* %b_5, i64 0, i64 0"
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%b_0_addr_1 = getelementptr [6 x i8]* %b_0, i64 0, i64 1"
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%b_1_addr_1 = getelementptr [6 x i8]* %b_1, i64 0, i64 1"
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%b_2_addr_1 = getelementptr [6 x i8]* %b_2, i64 0, i64 1"
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%b_3_addr_1 = getelementptr [6 x i8]* %b_3, i64 0, i64 1"
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%b_4_addr_1 = getelementptr [6 x i8]* %b_4, i64 0, i64 1"
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%b_5_addr_1 = getelementptr [6 x i8]* %b_5, i64 0, i64 1"
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%b_0_addr_2 = getelementptr [6 x i8]* %b_0, i64 0, i64 2"
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%b_1_addr_2 = getelementptr [6 x i8]* %b_1, i64 0, i64 2"
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%b_2_addr_2 = getelementptr [6 x i8]* %b_2, i64 0, i64 2"
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%b_3_addr_2 = getelementptr [6 x i8]* %b_3, i64 0, i64 2"
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%b_4_addr_2 = getelementptr [6 x i8]* %b_4, i64 0, i64 2"
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%b_5_addr_2 = getelementptr [6 x i8]* %b_5, i64 0, i64 2"
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%b_0_addr_3 = getelementptr [6 x i8]* %b_0, i64 0, i64 3"
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%b_1_addr_3 = getelementptr [6 x i8]* %b_1, i64 0, i64 3"
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%b_2_addr_3 = getelementptr [6 x i8]* %b_2, i64 0, i64 3"
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%b_3_addr_3 = getelementptr [6 x i8]* %b_3, i64 0, i64 3"
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%b_4_addr_3 = getelementptr [6 x i8]* %b_4, i64 0, i64 3"
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%b_5_addr_3 = getelementptr [6 x i8]* %b_5, i64 0, i64 3"
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%b_0_addr_4 = getelementptr [6 x i8]* %b_0, i64 0, i64 4"
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%b_1_addr_4 = getelementptr [6 x i8]* %b_1, i64 0, i64 4"
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%b_2_addr_4 = getelementptr [6 x i8]* %b_2, i64 0, i64 4"
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%b_3_addr_4 = getelementptr [6 x i8]* %b_3, i64 0, i64 4"
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%b_4_addr_4 = getelementptr [6 x i8]* %b_4, i64 0, i64 4"
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%b_5_addr_4 = getelementptr [6 x i8]* %b_5, i64 0, i64 4"
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%b_0_addr_5 = getelementptr [6 x i8]* %b_0, i64 0, i64 5"
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%b_1_addr_5 = getelementptr [6 x i8]* %b_1, i64 0, i64 5"
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%b_2_addr_5 = getelementptr [6 x i8]* %b_2, i64 0, i64 5"
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%b_3_addr_5 = getelementptr [6 x i8]* %b_3, i64 0, i64 5"
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%b_4_addr_5 = getelementptr [6 x i8]* %b_4, i64 0, i64 5"
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%b_5_addr_5 = getelementptr [6 x i8]* %b_5, i64 0, i64 5"
+ST_1 : Operation 68 [1/1] (1.30ns)   --->   "br label %1" [conv2d.cpp:9]
 
- <State 2> : 8.42ns
-ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i4 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
-ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%i = phi i2 [ 0, %0 ], [ %tmp_mid2, %.reset ]" [conv2d.cpp:13]
-ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%j = phi i2 [ 0, %0 ], [ %j_1, %.reset ]"
-ST_2 : Operation 29 [1/1] (1.27ns)   --->   "%i_1 = add i2 %i, 1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 30 [1/1] (1.09ns)   --->   "%exitcond_flatten = icmp eq i4 %indvar_flatten, -7"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"
-ST_2 : Operation 32 [1/1] (1.52ns)   --->   "%indvar_flatten_next = add i4 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 33 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %2, label %.reset"
-ST_2 : Operation 34 [1/1] (0.89ns)   --->   "%exitcond = icmp eq i2 %j, -1" [conv2d.cpp:11]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 35 [1/1] (0.81ns)   --->   "%j_mid2 = select i1 %exitcond, i2 0, i2 %j" [conv2d.cpp:11]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 36 [1/1] (0.81ns)   --->   "%tmp_mid2 = select i1 %exitcond, i2 %i_1, i2 %i" [conv2d.cpp:13]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node tmp_8_1_mid2)   --->   "%tmp_7_1_mid1 = xor i2 %i, -2" [conv2d.cpp:16]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 38 [1/1] (0.81ns) (out node of the LUT)   --->   "%tmp_8_1_mid2 = select i1 %exitcond, i2 %tmp_7_1_mid1, i2 %i_1" [conv2d.cpp:16]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.81> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_8_2_mid2_v_v = zext i2 %tmp_mid2 to i3" [conv2d.cpp:16]
-ST_2 : Operation 40 [1/1] (1.39ns)   --->   "%tmp_8_2_mid2_v = add i3 %tmp_8_2_mid2_v_v, 2" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%tmp_8_2_mid2_cast = zext i3 %tmp_8_2_mid2_v to i6" [conv2d.cpp:16]
-ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%tmp_7 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %tmp_8_2_mid2_v, i2 0)" [conv2d.cpp:16]
-ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%p_shl_cast = zext i5 %tmp_7 to i6" [conv2d.cpp:16]
-ST_2 : Operation 44 [1/1] (1.56ns)   --->   "%tmp_9 = add i6 %p_shl_cast, %tmp_8_2_mid2_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%tmp_4_cast8 = zext i2 %j_mid2 to i3" [conv2d.cpp:16]
-ST_2 : Operation 46 [2/2] (1.75ns)   --->   "%b_0_load = load i8* %b_0_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 47 [1/1] (1.27ns)   --->   "%j_1 = add i2 %j_mid2, 1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_5_0_1_cast = zext i2 %j_1 to i6" [conv2d.cpp:16]
-ST_2 : Operation 49 [1/1] (1.61ns)   --->   "%tmp_16 = add i6 %tmp_5_0_1_cast, %tmp_9" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_19_cast = zext i6 %tmp_16 to i64" [conv2d.cpp:16]
-ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%a_addr_7 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_19_cast" [conv2d.cpp:16]
-ST_2 : Operation 52 [2/2] (1.75ns)   --->   "%b_1_load = load i8* %b_1_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 53 [1/1] (1.39ns)   --->   "%tmp_2_0_2 = add i3 %tmp_4_cast8, 2" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%tmp_5_0_2_cast = zext i3 %tmp_2_0_2 to i6" [conv2d.cpp:16]
-ST_2 : Operation 55 [1/1] (1.61ns)   --->   "%tmp_19 = add i6 %tmp_5_0_2_cast, %tmp_9" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%tmp_22_cast = zext i6 %tmp_19 to i64" [conv2d.cpp:16]
-ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%a_addr_8 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_22_cast" [conv2d.cpp:16]
-ST_2 : Operation 58 [2/2] (1.75ns)   --->   "%b_2_load = load i8* %b_2_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 59 [2/2] (1.75ns)   --->   "%b_0_load_1 = load i8* %b_0_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 60 [2/2] (1.75ns)   --->   "%a_load_7 = load i8* %a_addr_7, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 61 [2/2] (1.75ns)   --->   "%b_1_load_2 = load i8* %b_1_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 62 [2/2] (1.75ns)   --->   "%a_load_8 = load i8* %a_addr_8, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_2 : Operation 63 [2/2] (1.75ns)   --->   "%b_2_load_2 = load i8* %b_2_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
+ <State 2> : 7.27ns
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i5 [ 0, %0 ], [ %indvar_flatten_next, %.reset ]"
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%i = phi i3 [ 0, %0 ], [ %tmp_mid2, %.reset ]" [conv2d.cpp:13]
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%j = phi i3 [ 0, %0 ], [ %j_1, %.reset ]"
+ST_2 : Operation 72 [1/1] (1.39ns)   --->   "%i_1 = add i3 %i, 1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 73 [1/1] (1.14ns)   --->   "%exitcond_flatten = icmp eq i5 %indvar_flatten, -7"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 25, i64 25, i64 25)"
+ST_2 : Operation 75 [1/1] (1.56ns)   --->   "%indvar_flatten_next = add i5 %indvar_flatten, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "br i1 %exitcond_flatten, label %2, label %.reset"
+ST_2 : Operation 77 [1/1] (0.99ns)   --->   "%exitcond = icmp eq i3 %j, -3" [conv2d.cpp:11]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 78 [1/1] (0.79ns)   --->   "%j_mid2 = select i1 %exitcond, i3 0, i3 %j" [conv2d.cpp:11]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 79 [1/1] (0.79ns)   --->   "%tmp_mid2 = select i1 %exitcond, i3 %i_1, i3 %i" [conv2d.cpp:13]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%tmp = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_mid2, i3 0)" [conv2d.cpp:13]
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%p_shl11_cast = zext i6 %tmp to i8" [conv2d.cpp:13]
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%tmp_1 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %tmp_mid2, i1 false)" [conv2d.cpp:13]
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%p_shl12_cast = zext i4 %tmp_1 to i8" [conv2d.cpp:16]
+ST_2 : Operation 84 [1/1] (1.61ns)   --->   "%tmp_6 = add i8 %p_shl11_cast, %p_shl12_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%j_cast = zext i3 %j_mid2 to i4" [conv2d.cpp:11]
+ST_2 : Operation 86 [1/1] (1.52ns)   --->   "%tmp_8_0_4 = add i4 %j_cast, 4" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%tmp_9_0_4_cast = zext i4 %tmp_8_0_4 to i8" [conv2d.cpp:16]
+ST_2 : Operation 88 [1/1] (1.65ns)   --->   "%tmp_48 = add i8 %tmp_9_0_4_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%tmp_50_cast = zext i8 %tmp_48 to i64" [conv2d.cpp:16]
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%a_addr_4 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_50_cast" [conv2d.cpp:16]
+ST_2 : Operation 91 [2/2] (1.81ns)   --->   "%a_load_4 = load i8* %a_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 92 [2/2] (1.75ns)   --->   "%b_4_load = load i8* %b_4_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 93 [1/1] (1.52ns)   --->   "%tmp_8_0_5 = add i4 %j_cast, 5" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%tmp_9_0_5_cast = zext i4 %tmp_8_0_5 to i8" [conv2d.cpp:16]
+ST_2 : Operation 95 [1/1] (1.65ns)   --->   "%tmp_54 = add i8 %tmp_9_0_5_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_56_cast = zext i8 %tmp_54 to i64" [conv2d.cpp:16]
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "%a_addr_5 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_56_cast" [conv2d.cpp:16]
+ST_2 : Operation 98 [2/2] (1.81ns)   --->   "%a_load_5 = load i8* %a_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 99 [2/2] (1.75ns)   --->   "%b_5_load = load i8* %b_5_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 100 [2/2] (1.75ns)   --->   "%b_0_load_1 = load i8* %b_0_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 101 [2/2] (1.75ns)   --->   "%b_1_load_1 = load i8* %b_1_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 102 [2/2] (1.75ns)   --->   "%b_2_load_1 = load i8* %b_2_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 103 [2/2] (1.75ns)   --->   "%b_1_load_2 = load i8* %b_1_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 104 [2/2] (1.75ns)   --->   "%b_2_load_2 = load i8* %b_2_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 105 [2/2] (1.75ns)   --->   "%b_3_load_2 = load i8* %b_3_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 106 [2/2] (1.75ns)   --->   "%b_4_load_2 = load i8* %b_4_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 107 [2/2] (1.75ns)   --->   "%b_5_load_2 = load i8* %b_5_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 108 [2/2] (1.75ns)   --->   "%b_0_load_3 = load i8* %b_0_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_2 : Operation 109 [2/2] (1.75ns)   --->   "%b_3_load_3 = load i8* %b_3_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
 
- <State 3> : 8.10ns
-ST_3 : Operation 64 [1/1] (0.00ns)   --->   "%tmp_mid2_cast1 = zext i2 %tmp_mid2 to i6" [conv2d.cpp:13]
-ST_3 : Operation 65 [1/1] (0.00ns)   --->   "%tmp_mid2_cast = zext i2 %tmp_mid2 to i5" [conv2d.cpp:13]
-ST_3 : Operation 66 [1/1] (0.00ns)   --->   "%tmp = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_mid2, i2 0)" [conv2d.cpp:13]
-ST_3 : Operation 67 [1/1] (0.00ns)   --->   "%p_shl3_cast1 = zext i4 %tmp to i6" [conv2d.cpp:16]
-ST_3 : Operation 68 [1/1] (0.00ns)   --->   "%p_shl3_cast = zext i4 %tmp to i5" [conv2d.cpp:16]
-ST_3 : Operation 69 [1/1] (1.52ns)   --->   "%tmp_6 = add i6 %p_shl3_cast1, %tmp_mid2_cast1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 70 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_8 = sub i5 %p_shl3_cast, %tmp_mid2_cast" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_3 : Operation 71 [1/1] (0.00ns)   --->   "%tmp_8_1_mid2_cast9 = zext i2 %tmp_8_1_mid2 to i6" [conv2d.cpp:16]
-ST_3 : Operation 72 [1/1] (0.00ns)   --->   "%tmp_2 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_8_1_mid2, i2 0)" [conv2d.cpp:16]
-ST_3 : Operation 73 [1/1] (0.00ns)   --->   "%p_shl1_cast = zext i4 %tmp_2 to i6" [conv2d.cpp:16]
-ST_3 : Operation 74 [1/1] (1.52ns)   --->   "%tmp_3 = add i6 %p_shl1_cast, %tmp_8_1_mid2_cast9" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 75 [1/1] (0.00ns)   --->   "%tmp_3_cast8 = zext i2 %j_mid2 to i5" [conv2d.cpp:16]
-ST_3 : Operation 76 [1/1] (0.00ns)   --->   "%tmp_3_cast = zext i2 %j_mid2 to i6" [conv2d.cpp:16]
-ST_3 : Operation 77 [1/1] (1.56ns)   --->   "%tmp_10 = add i6 %tmp_3_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 78 [1/1] (0.00ns)   --->   "%tmp_13_cast = zext i6 %tmp_10 to i64" [conv2d.cpp:16]
-ST_3 : Operation 79 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_13_cast" [conv2d.cpp:16]
-ST_3 : Operation 80 [1/1] (1.56ns)   --->   "%tmp_11 = add i6 %tmp_3_cast, %tmp_3" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 81 [1/1] (1.61ns)   --->   "%tmp_12 = add i6 %tmp_3_cast, %tmp_9" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 82 [1/1] (2.79ns) (root node of TernaryAdder)   --->   "%tmp_13 = add i5 %tmp_3_cast8, %tmp_8" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_3 : Operation 83 [2/2] (1.75ns)   --->   "%a_load = load i8* %a_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 84 [1/2] (1.75ns)   --->   "%b_0_load = load i8* %b_0_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 85 [1/1] (1.56ns)   --->   "%tmp_14 = add i6 %tmp_5_0_1_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 86 [1/1] (0.00ns)   --->   "%tmp_17_cast = zext i6 %tmp_14 to i64" [conv2d.cpp:16]
-ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%a_addr_1 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_17_cast" [conv2d.cpp:16]
-ST_3 : Operation 88 [1/1] (1.56ns)   --->   "%tmp_15 = add i6 %tmp_5_0_1_cast, %tmp_3" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 89 [2/2] (1.75ns)   --->   "%a_load_1 = load i8* %a_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 90 [1/2] (1.75ns)   --->   "%b_1_load = load i8* %b_1_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 91 [1/1] (1.56ns)   --->   "%tmp_17 = add i6 %tmp_5_0_2_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 92 [1/1] (1.56ns)   --->   "%tmp_18 = add i6 %tmp_5_0_2_cast, %tmp_3" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 93 [1/2] (1.75ns)   --->   "%b_2_load = load i8* %b_2_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 94 [1/2] (1.75ns)   --->   "%b_0_load_1 = load i8* %b_0_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 95 [2/2] (1.75ns)   --->   "%b_1_load_1 = load i8* %b_1_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 96 [2/2] (1.75ns)   --->   "%b_2_load_1 = load i8* %b_2_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 97 [2/2] (1.75ns)   --->   "%b_0_load_2 = load i8* %b_0_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 98 [1/2] (1.75ns)   --->   "%a_load_7 = load i8* %a_addr_7, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%tmp_10_2_1 = sext i8 %a_load_7 to i16" [conv2d.cpp:16]
-ST_3 : Operation 100 [1/2] (1.75ns)   --->   "%b_1_load_2 = load i8* %b_1_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%tmp_12_2_1 = sext i8 %b_1_load_2 to i16" [conv2d.cpp:16]
-ST_3 : Operation 102 [1/1] (3.61ns)   --->   "%tmp_13_2_1 = mul i16 %tmp_10_2_1, %tmp_12_2_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 103 [1/2] (1.75ns)   --->   "%a_load_8 = load i8* %a_addr_8, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_10_2_2 = sext i8 %a_load_8 to i16" [conv2d.cpp:16]
-ST_3 : Operation 105 [1/2] (1.75ns)   --->   "%b_2_load_2 = load i8* %b_2_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_12_2_2 = sext i8 %b_2_load_2 to i16" [conv2d.cpp:16]
-ST_3 : Operation 107 [1/1] (2.82ns)   --->   "%tmp_13_2_2 = mul i16 %tmp_10_2_2, %tmp_12_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_3 : Operation 108 [1/1] (2.73ns)   --->   "%tmp7 = add i16 %tmp_13_2_1, %tmp_13_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ <State 3> : 8.15ns
+ST_3 : Operation 110 [1/1] (1.39ns)   --->   "%i_1_mid1 = add i3 %i, 2" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 111 [1/1] (0.79ns)   --->   "%tmp_5_1_mid2 = select i1 %exitcond, i3 %i_1_mid1, i3 %i_1" [conv2d.cpp:16]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_5 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_5_1_mid2, i3 0)" [conv2d.cpp:16]
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%p_shl8_cast = zext i6 %tmp_5 to i8" [conv2d.cpp:16]
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%tmp_8 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %tmp_5_1_mid2, i1 false)" [conv2d.cpp:16]
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%p_shl9_cast = zext i4 %tmp_8 to i8" [conv2d.cpp:16]
+ST_3 : Operation 116 [1/1] (1.61ns)   --->   "%tmp_10 = add i8 %p_shl8_cast, %p_shl9_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node tmp_5_2_mid2_v)   --->   "%tmp_5_2_mid2_v_v_cas = select i1 %exitcond, i3 3, i3 2" [conv2d.cpp:16]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 118 [1/1] (1.39ns) (out node of the LUT)   --->   "%tmp_5_2_mid2_v = add i3 %tmp_5_2_mid2_v_v_cas, %i" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node tmp_5_3_mid2_v)   --->   "%tmp_4_3_mid1 = xor i3 %i, -4" [conv2d.cpp:16]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 120 [1/1] (1.39ns)   --->   "%tmp_4_s = add i3 %i, 3" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 121 [1/1] (0.79ns) (out node of the LUT)   --->   "%tmp_5_3_mid2_v = select i1 %exitcond, i3 %tmp_4_3_mid1, i3 %tmp_4_s" [conv2d.cpp:16]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_2_cast = zext i3 %j_mid2 to i8" [conv2d.cpp:16]
+ST_3 : Operation 123 [1/1] (1.65ns)   --->   "%tmp_24 = add i8 %tmp_2_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%tmp_26_cast = zext i8 %tmp_24 to i64" [conv2d.cpp:16]
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%a_addr_6 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_26_cast" [conv2d.cpp:16]
+ST_3 : Operation 126 [1/1] (1.39ns)   --->   "%j_1 = add i3 %j_mid2, 1" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_9_0_1_cast = zext i3 %j_1 to i8" [conv2d.cpp:16]
+ST_3 : Operation 128 [1/1] (1.65ns)   --->   "%tmp_31 = add i8 %tmp_9_0_1_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%tmp_33_cast = zext i8 %tmp_31 to i64" [conv2d.cpp:16]
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%a_addr_7 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_33_cast" [conv2d.cpp:16]
+ST_3 : Operation 131 [1/2] (1.81ns)   --->   "%a_load_4 = load i8* %a_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%tmp_0_4 = sext i8 %a_load_4 to i16" [conv2d.cpp:16]
+ST_3 : Operation 133 [1/2] (1.75ns)   --->   "%b_4_load = load i8* %b_4_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%tmp_3_0_4 = sext i8 %b_4_load to i16" [conv2d.cpp:16]
+ST_3 : Operation 135 [1/1] (3.61ns)   --->   "%tmp_7_0_4 = mul i16 %tmp_0_4, %tmp_3_0_4" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 136 [1/2] (1.81ns)   --->   "%a_load_5 = load i8* %a_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_0_5 = sext i8 %a_load_5 to i16" [conv2d.cpp:16]
+ST_3 : Operation 138 [1/2] (1.75ns)   --->   "%b_5_load = load i8* %b_5_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%tmp_3_0_5 = sext i8 %b_5_load to i16" [conv2d.cpp:16]
+ST_3 : Operation 140 [1/1] (2.82ns)   --->   "%tmp_7_0_5 = mul i16 %tmp_0_5, %tmp_3_0_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 141 [2/2] (1.81ns)   --->   "%a_load_6 = load i8* %a_addr_6, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 142 [1/2] (1.75ns)   --->   "%b_0_load_1 = load i8* %b_0_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 143 [2/2] (1.81ns)   --->   "%a_load_7 = load i8* %a_addr_7, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 144 [1/2] (1.75ns)   --->   "%b_1_load_1 = load i8* %b_1_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 145 [1/2] (1.75ns)   --->   "%b_2_load_1 = load i8* %b_2_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 146 [1/2] (1.75ns)   --->   "%b_1_load_2 = load i8* %b_1_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 147 [1/2] (1.75ns)   --->   "%b_2_load_2 = load i8* %b_2_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 148 [1/2] (1.75ns)   --->   "%b_3_load_2 = load i8* %b_3_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 149 [1/2] (1.75ns)   --->   "%b_4_load_2 = load i8* %b_4_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 150 [1/2] (1.75ns)   --->   "%b_5_load_2 = load i8* %b_5_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 151 [1/2] (1.75ns)   --->   "%b_0_load_3 = load i8* %b_0_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 152 [2/2] (1.75ns)   --->   "%b_1_load_3 = load i8* %b_1_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 153 [2/2] (1.75ns)   --->   "%b_2_load_3 = load i8* %b_2_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 154 [1/2] (1.75ns)   --->   "%b_3_load_3 = load i8* %b_3_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 155 [2/2] (1.75ns)   --->   "%b_4_load_3 = load i8* %b_4_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 156 [2/2] (1.75ns)   --->   "%b_5_load_3 = load i8* %b_5_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 157 [2/2] (1.75ns)   --->   "%b_0_load_4 = load i8* %b_0_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 158 [2/2] (1.75ns)   --->   "%b_1_load_4 = load i8* %b_1_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 159 [2/2] (1.75ns)   --->   "%b_2_load_4 = load i8* %b_2_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 160 [2/2] (1.75ns)   --->   "%b_3_load_4 = load i8* %b_3_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 161 [2/2] (1.75ns)   --->   "%b_4_load_4 = load i8* %b_4_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 162 [2/2] (1.75ns)   --->   "%b_5_load_4 = load i8* %b_5_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 163 [2/2] (1.75ns)   --->   "%b_0_load_5 = load i8* %b_0_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 164 [2/2] (1.75ns)   --->   "%b_3_load_5 = load i8* %b_3_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_3 : Operation 165 [1/1] (2.73ns)   --->   "%tmp7 = add i16 %tmp_7_0_4, %tmp_7_0_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
- <State 4> : 8.10ns
-ST_4 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_14_cast = zext i6 %tmp_11 to i64" [conv2d.cpp:16]
-ST_4 : Operation 110 [1/1] (0.00ns)   --->   "%a_addr_3 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_14_cast" [conv2d.cpp:16]
-ST_4 : Operation 111 [1/2] (1.75ns)   --->   "%a_load = load i8* %a_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_s = sext i8 %a_load to i16" [conv2d.cpp:16]
-ST_4 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_1 = sext i8 %b_0_load to i16" [conv2d.cpp:16]
-ST_4 : Operation 114 [1/1] (2.82ns)   --->   "%tmp_4 = mul i16 %tmp_s, %tmp_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_4 : Operation 115 [1/2] (1.75ns)   --->   "%a_load_1 = load i8* %a_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 116 [1/1] (0.00ns)   --->   "%tmp_10_0_1 = sext i8 %a_load_1 to i16" [conv2d.cpp:16]
-ST_4 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_12_0_1 = sext i8 %b_1_load to i16" [conv2d.cpp:16]
-ST_4 : Operation 118 [1/1] (3.61ns)   --->   "%tmp_13_0_1 = mul i16 %tmp_10_0_1, %tmp_12_0_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_4 : Operation 119 [1/1] (0.00ns)   --->   "%tmp_20_cast = zext i6 %tmp_17 to i64" [conv2d.cpp:16]
-ST_4 : Operation 120 [1/1] (0.00ns)   --->   "%a_addr_2 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_20_cast" [conv2d.cpp:16]
-ST_4 : Operation 121 [2/2] (1.75ns)   --->   "%a_load_2 = load i8* %a_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 122 [2/2] (1.75ns)   --->   "%a_load_3 = load i8* %a_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 123 [1/2] (1.75ns)   --->   "%b_1_load_1 = load i8* %b_1_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 124 [1/2] (1.75ns)   --->   "%b_2_load_1 = load i8* %b_2_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 125 [1/2] (1.75ns)   --->   "%b_0_load_2 = load i8* %b_0_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_4 : Operation 126 [1/1] (2.73ns)   --->   "%tmp2 = add i16 %tmp_13_0_1, %tmp_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ <State 4> : 5.42ns
+ST_4 : Operation 166 [1/1] (0.00ns)   --->   "%tmp_11 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_5_2_mid2_v, i3 0)" [conv2d.cpp:16]
+ST_4 : Operation 167 [1/1] (0.00ns)   --->   "%p_shl6_cast = zext i6 %tmp_11 to i7" [conv2d.cpp:16]
+ST_4 : Operation 168 [1/1] (0.00ns)   --->   "%tmp_12 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %tmp_5_2_mid2_v, i1 false)" [conv2d.cpp:16]
+ST_4 : Operation 169 [1/1] (0.00ns)   --->   "%p_shl7_cast = zext i4 %tmp_12 to i7" [conv2d.cpp:16]
+ST_4 : Operation 170 [1/1] (1.61ns)   --->   "%tmp_13 = add i7 %p_shl6_cast, %p_shl7_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 171 [2/2] (1.75ns)   --->   "%b_0_load = load i8* %b_0_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 172 [1/1] (0.00ns)   --->   "%tmp_9_0_1_cast1 = zext i3 %j_1 to i7" [conv2d.cpp:16]
+ST_4 : Operation 173 [1/1] (1.65ns)   --->   "%tmp_32 = add i7 %tmp_9_0_1_cast1, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 174 [1/1] (0.00ns)   --->   "%tmp_34_cast = zext i7 %tmp_32 to i64" [conv2d.cpp:16]
+ST_4 : Operation 175 [1/1] (0.00ns)   --->   "%a_addr_13 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_34_cast" [conv2d.cpp:16]
+ST_4 : Operation 176 [2/2] (1.75ns)   --->   "%b_1_load = load i8* %b_1_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 177 [1/1] (1.39ns)   --->   "%tmp_8_0_2 = add i3 %j_mid2, 2" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 178 [1/1] (0.00ns)   --->   "%tmp_9_0_2_cast = zext i3 %tmp_8_0_2 to i8" [conv2d.cpp:16]
+ST_4 : Operation 179 [1/1] (1.65ns)   --->   "%tmp_37 = add i8 %tmp_9_0_2_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 180 [1/1] (0.00ns)   --->   "%tmp_39_cast = zext i8 %tmp_37 to i64" [conv2d.cpp:16]
+ST_4 : Operation 181 [1/1] (0.00ns)   --->   "%a_addr_8 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_39_cast" [conv2d.cpp:16]
+ST_4 : Operation 182 [2/2] (1.75ns)   --->   "%b_2_load = load i8* %b_2_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 183 [2/2] (1.75ns)   --->   "%b_3_load = load i8* %b_3_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 184 [1/2] (1.81ns)   --->   "%a_load_6 = load i8* %a_addr_6, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 185 [1/2] (1.81ns)   --->   "%a_load_7 = load i8* %a_addr_7, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 186 [1/1] (0.00ns)   --->   "%tmp_1_1 = sext i8 %a_load_7 to i16" [conv2d.cpp:16]
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%tmp_3_1_1 = sext i8 %b_1_load_1 to i16" [conv2d.cpp:16]
+ST_4 : Operation 188 [1/1] (3.61ns)   --->   "%tmp_7_1_1 = mul i16 %tmp_1_1, %tmp_3_1_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 189 [2/2] (1.81ns)   --->   "%a_load_8 = load i8* %a_addr_8, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 190 [2/2] (1.75ns)   --->   "%b_3_load_1 = load i8* %b_3_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 191 [2/2] (1.75ns)   --->   "%b_4_load_1 = load i8* %b_4_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 192 [2/2] (1.75ns)   --->   "%b_5_load_1 = load i8* %b_5_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 193 [2/2] (1.75ns)   --->   "%b_0_load_2 = load i8* %b_0_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 194 [2/2] (1.81ns)   --->   "%a_load_13 = load i8* %a_addr_13, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 195 [1/2] (1.75ns)   --->   "%b_1_load_3 = load i8* %b_1_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 196 [1/2] (1.75ns)   --->   "%b_2_load_3 = load i8* %b_2_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 197 [1/2] (1.75ns)   --->   "%b_4_load_3 = load i8* %b_4_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 198 [1/2] (1.75ns)   --->   "%b_5_load_3 = load i8* %b_5_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 199 [1/2] (1.75ns)   --->   "%b_0_load_4 = load i8* %b_0_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 200 [1/2] (1.75ns)   --->   "%b_1_load_4 = load i8* %b_1_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 201 [1/2] (1.75ns)   --->   "%b_2_load_4 = load i8* %b_2_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 202 [1/2] (1.75ns)   --->   "%b_3_load_4 = load i8* %b_3_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 203 [1/2] (1.75ns)   --->   "%b_4_load_4 = load i8* %b_4_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 204 [1/2] (1.75ns)   --->   "%b_5_load_4 = load i8* %b_5_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 205 [1/2] (1.75ns)   --->   "%b_0_load_5 = load i8* %b_0_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 206 [2/2] (1.75ns)   --->   "%b_1_load_5 = load i8* %b_1_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 207 [2/2] (1.75ns)   --->   "%b_2_load_5 = load i8* %b_2_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 208 [1/2] (1.75ns)   --->   "%b_3_load_5 = load i8* %b_3_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 209 [2/2] (1.75ns)   --->   "%b_4_load_5 = load i8* %b_4_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_4 : Operation 210 [2/2] (1.75ns)   --->   "%b_5_load_5 = load i8* %b_5_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
 
- <State 5> : 8.10ns
-ST_5 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_18_cast = zext i6 %tmp_15 to i64" [conv2d.cpp:16]
-ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%a_addr_4 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_18_cast" [conv2d.cpp:16]
-ST_5 : Operation 129 [1/1] (0.00ns)   --->   "%tmp_21_cast = zext i6 %tmp_18 to i64" [conv2d.cpp:16]
-ST_5 : Operation 130 [1/1] (0.00ns)   --->   "%a_addr_5 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_21_cast" [conv2d.cpp:16]
-ST_5 : Operation 131 [1/2] (1.75ns)   --->   "%a_load_2 = load i8* %a_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_5 : Operation 132 [1/1] (0.00ns)   --->   "%tmp_10_0_2 = sext i8 %a_load_2 to i16" [conv2d.cpp:16]
-ST_5 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_12_0_2 = sext i8 %b_2_load to i16" [conv2d.cpp:16]
-ST_5 : Operation 134 [1/1] (3.61ns)   --->   "%tmp_13_0_2 = mul i16 %tmp_10_0_2, %tmp_12_0_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 135 [1/2] (1.75ns)   --->   "%a_load_3 = load i8* %a_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_5 : Operation 136 [1/1] (0.00ns)   --->   "%tmp_10_1 = sext i8 %a_load_3 to i16" [conv2d.cpp:16]
-ST_5 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_12_1 = sext i8 %b_0_load_1 to i16" [conv2d.cpp:16]
-ST_5 : Operation 138 [1/1] (2.82ns)   --->   "%tmp_13_1 = mul i16 %tmp_10_1, %tmp_12_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_5 : Operation 139 [2/2] (1.75ns)   --->   "%a_load_4 = load i8* %a_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_5 : Operation 140 [2/2] (1.75ns)   --->   "%a_load_5 = load i8* %a_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_5 : Operation 141 [1/1] (2.73ns)   --->   "%tmp3 = add i16 %tmp_13_0_2, %tmp_13_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ <State 5> : 7.36ns
+ST_5 : Operation 211 [1/2] (1.75ns)   --->   "%b_0_load = load i8* %b_0_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 212 [1/2] (1.75ns)   --->   "%b_1_load = load i8* %b_1_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 213 [1/1] (0.00ns)   --->   "%tmp_9_0_2_cast1 = zext i3 %tmp_8_0_2 to i7" [conv2d.cpp:16]
+ST_5 : Operation 214 [1/1] (1.65ns)   --->   "%tmp_38 = add i7 %tmp_9_0_2_cast1, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 215 [1/1] (0.00ns)   --->   "%tmp_40_cast = zext i7 %tmp_38 to i64" [conv2d.cpp:16]
+ST_5 : Operation 216 [1/1] (0.00ns)   --->   "%a_addr_14 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_40_cast" [conv2d.cpp:16]
+ST_5 : Operation 217 [1/2] (1.75ns)   --->   "%b_2_load = load i8* %b_2_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 218 [1/1] (1.39ns)   --->   "%tmp_8_0_3 = add i3 %j_mid2, 3" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 219 [1/1] (0.00ns)   --->   "%tmp_9_0_3_cast1 = zext i3 %tmp_8_0_3 to i7" [conv2d.cpp:16]
+ST_5 : Operation 220 [1/1] (1.65ns)   --->   "%tmp_44 = add i7 %tmp_9_0_3_cast1, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 221 [1/1] (0.00ns)   --->   "%tmp_46_cast = zext i7 %tmp_44 to i64" [conv2d.cpp:16]
+ST_5 : Operation 222 [1/1] (0.00ns)   --->   "%a_addr_15 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_46_cast" [conv2d.cpp:16]
+ST_5 : Operation 223 [1/2] (1.75ns)   --->   "%b_3_load = load i8* %b_3_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 224 [1/2] (1.81ns)   --->   "%a_load_8 = load i8* %a_addr_8, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 225 [1/1] (0.00ns)   --->   "%tmp_1_2_3 = sext i8 %a_load_8 to i16" [conv2d.cpp:16]
+ST_5 : Operation 226 [1/1] (0.00ns)   --->   "%tmp_3_1_2 = sext i8 %b_2_load_1 to i16" [conv2d.cpp:16]
+ST_5 : Operation 227 [1/1] (2.82ns)   --->   "%tmp_7_1_2 = mul i16 %tmp_1_2_3, %tmp_3_1_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 228 [1/2] (1.75ns)   --->   "%b_3_load_1 = load i8* %b_3_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 229 [1/2] (1.75ns)   --->   "%b_4_load_1 = load i8* %b_4_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 230 [1/2] (1.75ns)   --->   "%b_5_load_1 = load i8* %b_5_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 231 [1/2] (1.75ns)   --->   "%b_0_load_2 = load i8* %b_0_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 232 [1/2] (1.81ns)   --->   "%a_load_13 = load i8* %a_addr_13, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 233 [1/1] (0.00ns)   --->   "%tmp_2_1 = sext i8 %a_load_13 to i16" [conv2d.cpp:16]
+ST_5 : Operation 234 [1/1] (0.00ns)   --->   "%tmp_3_2_1 = sext i8 %b_1_load_2 to i16" [conv2d.cpp:16]
+ST_5 : Operation 235 [1/1] (3.61ns)   --->   "%tmp_7_2_1 = mul i16 %tmp_2_1, %tmp_3_2_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 236 [2/2] (1.81ns)   --->   "%a_load_14 = load i8* %a_addr_14, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 237 [2/2] (1.81ns)   --->   "%a_load_15 = load i8* %a_addr_15, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 238 [1/2] (1.75ns)   --->   "%b_1_load_5 = load i8* %b_1_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 239 [1/2] (1.75ns)   --->   "%b_2_load_5 = load i8* %b_2_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 240 [1/2] (1.75ns)   --->   "%b_4_load_5 = load i8* %b_4_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 241 [1/2] (1.75ns)   --->   "%b_5_load_5 = load i8* %b_5_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_5 : Operation 242 [1/1] (2.73ns)   --->   "%tmp9 = add i16 %tmp_7_1_1, %tmp_7_1_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
- <State 6> : 8.10ns
-ST_6 : Operation 142 [1/1] (0.00ns)   --->   "%tmp_15_cast = zext i6 %tmp_12 to i64" [conv2d.cpp:16]
-ST_6 : Operation 143 [1/1] (0.00ns)   --->   "%a_addr_6 = getelementptr [25 x i8]* %a, i64 0, i64 %tmp_15_cast" [conv2d.cpp:16]
-ST_6 : Operation 144 [1/2] (1.75ns)   --->   "%a_load_4 = load i8* %a_addr_4, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_6 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_10_1_1 = sext i8 %a_load_4 to i16" [conv2d.cpp:16]
-ST_6 : Operation 146 [1/1] (0.00ns)   --->   "%tmp_12_1_1 = sext i8 %b_1_load_1 to i16" [conv2d.cpp:16]
-ST_6 : Operation 147 [1/1] (3.61ns)   --->   "%tmp_13_1_1 = mul i16 %tmp_10_1_1, %tmp_12_1_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 148 [1/2] (1.75ns)   --->   "%a_load_5 = load i8* %a_addr_5, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_6 : Operation 149 [1/1] (0.00ns)   --->   "%tmp_10_1_2 = sext i8 %a_load_5 to i16" [conv2d.cpp:16]
-ST_6 : Operation 150 [1/1] (0.00ns)   --->   "%tmp_12_1_2 = sext i8 %b_2_load_1 to i16" [conv2d.cpp:16]
-ST_6 : Operation 151 [1/1] (2.82ns)   --->   "%tmp_13_1_2 = mul i16 %tmp_10_1_2, %tmp_12_1_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_6 : Operation 152 [2/2] (1.75ns)   --->   "%a_load_6 = load i8* %a_addr_6, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_6 : Operation 153 [1/1] (2.73ns)   --->   "%tmp5 = add i16 %tmp_13_1_1, %tmp_13_1_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ <State 6> : 7.36ns
+ST_6 : Operation 243 [1/1] (0.00ns)   --->   "%tmp_9_0_4_cast1 = zext i4 %tmp_8_0_4 to i7" [conv2d.cpp:16]
+ST_6 : Operation 244 [1/1] (1.65ns)   --->   "%tmp_50 = add i7 %tmp_9_0_4_cast1, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 245 [1/1] (0.00ns)   --->   "%tmp_52_cast = zext i7 %tmp_50 to i64" [conv2d.cpp:16]
+ST_6 : Operation 246 [1/1] (0.00ns)   --->   "%a_addr_16 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_52_cast" [conv2d.cpp:16]
+ST_6 : Operation 247 [1/1] (0.00ns)   --->   "%tmp_9_0_5_cast1 = zext i4 %tmp_8_0_5 to i7" [conv2d.cpp:16]
+ST_6 : Operation 248 [1/1] (1.65ns)   --->   "%tmp_56 = add i7 %tmp_9_0_5_cast1, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 249 [1/1] (0.00ns)   --->   "%tmp_58_cast = zext i7 %tmp_56 to i64" [conv2d.cpp:16]
+ST_6 : Operation 250 [1/1] (0.00ns)   --->   "%a_addr_17 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_58_cast" [conv2d.cpp:16]
+ST_6 : Operation 251 [1/1] (0.00ns)   --->   "%tmp_1_2 = sext i8 %a_load_6 to i16" [conv2d.cpp:16]
+ST_6 : Operation 252 [1/1] (0.00ns)   --->   "%tmp_3_1 = sext i8 %b_0_load_1 to i16" [conv2d.cpp:16]
+ST_6 : Operation 253 [1/1] (2.82ns)   --->   "%tmp_7_1 = mul i16 %tmp_1_2, %tmp_3_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 254 [1/2] (1.81ns)   --->   "%a_load_14 = load i8* %a_addr_14, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_6 : Operation 255 [1/1] (0.00ns)   --->   "%tmp_2_2 = sext i8 %a_load_14 to i16" [conv2d.cpp:16]
+ST_6 : Operation 256 [1/1] (0.00ns)   --->   "%tmp_3_2_2 = sext i8 %b_2_load_2 to i16" [conv2d.cpp:16]
+ST_6 : Operation 257 [1/1] (2.82ns)   --->   "%tmp_7_2_2 = mul i16 %tmp_2_2, %tmp_3_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 258 [1/2] (1.81ns)   --->   "%a_load_15 = load i8* %a_addr_15, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_6 : Operation 259 [2/2] (1.81ns)   --->   "%a_load_16 = load i8* %a_addr_16, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_6 : Operation 260 [2/2] (1.81ns)   --->   "%a_load_17 = load i8* %a_addr_17, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_6 : Operation 261 [1/1] (2.73ns)   --->   "%tmp8 = add i16 %tmp9, %tmp_7_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 262 [1/1] (1.72ns)   --->   "%tmp6 = add i16 %tmp8, %tmp7" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 263 [1/1] (2.73ns)   --->   "%tmp15 = add i16 %tmp_7_2_1, %tmp_7_2_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
- <State 7> : 7.30ns
-ST_7 : Operation 154 [1/2] (1.75ns)   --->   "%a_load_6 = load i8* %a_addr_6, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_7 : Operation 155 [1/1] (0.00ns)   --->   "%tmp_10_2 = sext i8 %a_load_6 to i16" [conv2d.cpp:16]
-ST_7 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_12_2 = sext i8 %b_0_load_2 to i16" [conv2d.cpp:16]
-ST_7 : Operation 157 [1/1] (2.82ns)   --->   "%tmp_13_2 = mul i16 %tmp_10_2, %tmp_12_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
-ST_7 : Operation 158 [1/1] (2.73ns)   --->   "%tmp6 = add i16 %tmp7, %tmp_13_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ <State 7> : 8.15ns
+ST_7 : Operation 264 [1/1] (0.00ns)   --->   "%tmp_14 = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %tmp_5_3_mid2_v, i3 0)" [conv2d.cpp:16]
+ST_7 : Operation 265 [1/1] (0.00ns)   --->   "%p_shl4_cast = zext i6 %tmp_14 to i7" [conv2d.cpp:16]
+ST_7 : Operation 266 [1/1] (0.00ns)   --->   "%tmp_15 = call i4 @_ssdm_op_BitConcatenate.i4.i3.i1(i3 %tmp_5_3_mid2_v, i1 false)" [conv2d.cpp:16]
+ST_7 : Operation 267 [1/1] (0.00ns)   --->   "%p_shl5_cast = zext i4 %tmp_15 to i7" [conv2d.cpp:16]
+ST_7 : Operation 268 [1/1] (1.61ns)   --->   "%tmp_16 = add i7 %p_shl4_cast, %p_shl5_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 269 [1/1] (0.00ns)   --->   "%tmp_2_cast2 = zext i3 %j_mid2 to i7" [conv2d.cpp:16]
+ST_7 : Operation 270 [1/1] (1.65ns)   --->   "%tmp_25 = add i7 %tmp_2_cast2, %tmp_13" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 271 [1/1] (1.65ns)   --->   "%tmp_26 = add i7 %tmp_2_cast2, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 272 [1/1] (0.00ns)   --->   "%tmp_28_cast = zext i7 %tmp_26 to i64" [conv2d.cpp:16]
+ST_7 : Operation 273 [1/1] (0.00ns)   --->   "%a_addr_18 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_28_cast" [conv2d.cpp:16]
+ST_7 : Operation 274 [1/1] (1.65ns)   --->   "%tmp_33 = add i7 %tmp_9_0_1_cast1, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 275 [1/1] (0.00ns)   --->   "%tmp_35_cast = zext i7 %tmp_33 to i64" [conv2d.cpp:16]
+ST_7 : Operation 276 [1/1] (0.00ns)   --->   "%a_addr_19 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_35_cast" [conv2d.cpp:16]
+ST_7 : Operation 277 [1/1] (1.65ns)   --->   "%tmp_39 = add i7 %tmp_9_0_2_cast1, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 278 [1/1] (1.65ns)   --->   "%tmp_45 = add i7 %tmp_9_0_3_cast1, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 279 [1/1] (1.65ns)   --->   "%tmp_51 = add i7 %tmp_9_0_4_cast1, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 280 [1/1] (1.65ns)   --->   "%tmp_57 = add i7 %tmp_9_0_5_cast1, %tmp_16" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 281 [1/2] (1.81ns)   --->   "%a_load_16 = load i8* %a_addr_16, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_7 : Operation 282 [1/1] (0.00ns)   --->   "%tmp_2_4_5 = sext i8 %a_load_16 to i16" [conv2d.cpp:16]
+ST_7 : Operation 283 [1/1] (0.00ns)   --->   "%tmp_3_2_4 = sext i8 %b_4_load_2 to i16" [conv2d.cpp:16]
+ST_7 : Operation 284 [1/1] (3.61ns)   --->   "%tmp_7_2_4 = mul i16 %tmp_2_4_5, %tmp_3_2_4" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 285 [1/2] (1.81ns)   --->   "%a_load_17 = load i8* %a_addr_17, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_7 : Operation 286 [1/1] (0.00ns)   --->   "%tmp_2_5 = sext i8 %a_load_17 to i16" [conv2d.cpp:16]
+ST_7 : Operation 287 [1/1] (0.00ns)   --->   "%tmp_3_2_5 = sext i8 %b_5_load_2 to i16" [conv2d.cpp:16]
+ST_7 : Operation 288 [1/1] (2.82ns)   --->   "%tmp_7_2_5 = mul i16 %tmp_2_5, %tmp_3_2_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 289 [2/2] (1.81ns)   --->   "%a_load_18 = load i8* %a_addr_18, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_7 : Operation 290 [2/2] (1.81ns)   --->   "%a_load_19 = load i8* %a_addr_19, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_7 : Operation 291 [1/1] (2.73ns)   --->   "%tmp17 = add i16 %tmp_7_2_4, %tmp_7_2_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
- <State 8> : 6.67ns
-ST_8 : Operation 159 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([8 x i8]* @Row_Col_str)"
-ST_8 : Operation 160 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
-ST_8 : Operation 161 [1/1] (0.00ns)   --->   "%tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
-ST_8 : Operation 162 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [conv2d.cpp:12]
-ST_8 : Operation 163 [1/1] (0.00ns)   --->   "%tmp_16_cast = zext i5 %tmp_13 to i64" [conv2d.cpp:13]
-ST_8 : Operation 164 [1/1] (0.00ns)   --->   "%res_addr = getelementptr [9 x i16]* %res, i64 0, i64 %tmp_16_cast" [conv2d.cpp:13]
-ST_8 : Operation 165 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp1 = add i16 %tmp3, %tmp2" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_8 : Operation 166 [1/1] (1.72ns)   --->   "%tmp4 = add i16 %tmp6, %tmp5" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 167 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp_14_2_2 = add i16 %tmp4, %tmp1" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_8 : Operation 168 [1/1] (1.75ns)   --->   "store i16 %tmp_14_2_2, i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 9> <RAM>
-ST_8 : Operation 169 [1/1] (0.00ns)   --->   "%empty_2 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str3, i32 %tmp_5) nounwind" [conv2d.cpp:19]
-ST_8 : Operation 170 [1/1] (0.00ns)   --->   "br label %1"
+ <State 8> : 8.15ns
+ST_8 : Operation 292 [1/1] (0.00ns)   --->   "%tmp_41_cast = zext i7 %tmp_39 to i64" [conv2d.cpp:16]
+ST_8 : Operation 293 [1/1] (0.00ns)   --->   "%a_addr_20 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_41_cast" [conv2d.cpp:16]
+ST_8 : Operation 294 [1/1] (0.00ns)   --->   "%tmp_47_cast = zext i7 %tmp_45 to i64" [conv2d.cpp:16]
+ST_8 : Operation 295 [1/1] (0.00ns)   --->   "%a_addr_21 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_47_cast" [conv2d.cpp:16]
+ST_8 : Operation 296 [1/1] (0.00ns)   --->   "%tmp_2_3 = sext i8 %a_load_15 to i16" [conv2d.cpp:16]
+ST_8 : Operation 297 [1/1] (0.00ns)   --->   "%tmp_3_2_3 = sext i8 %b_3_load_2 to i16" [conv2d.cpp:16]
+ST_8 : Operation 298 [1/1] (2.82ns)   --->   "%tmp_7_2_3 = mul i16 %tmp_2_3, %tmp_3_2_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 299 [1/2] (1.81ns)   --->   "%a_load_18 = load i8* %a_addr_18, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_8 : Operation 300 [1/1] (0.00ns)   --->   "%tmp_3_6 = sext i8 %a_load_18 to i16" [conv2d.cpp:16]
+ST_8 : Operation 301 [1/1] (0.00ns)   --->   "%tmp_3_3 = sext i8 %b_0_load_3 to i16" [conv2d.cpp:16]
+ST_8 : Operation 302 [1/1] (3.61ns)   --->   "%tmp_7_3 = mul i16 %tmp_3_6, %tmp_3_3" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 303 [1/2] (1.81ns)   --->   "%a_load_19 = load i8* %a_addr_19, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_8 : Operation 304 [1/1] (0.00ns)   --->   "%tmp_3_1_7 = sext i8 %a_load_19 to i16" [conv2d.cpp:16]
+ST_8 : Operation 305 [1/1] (0.00ns)   --->   "%tmp_3_3_1 = sext i8 %b_1_load_3 to i16" [conv2d.cpp:16]
+ST_8 : Operation 306 [1/1] (2.82ns)   --->   "%tmp_7_3_1 = mul i16 %tmp_3_1_7, %tmp_3_3_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 307 [2/2] (1.81ns)   --->   "%a_load_20 = load i8* %a_addr_20, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_8 : Operation 308 [2/2] (1.81ns)   --->   "%a_load_21 = load i8* %a_addr_21, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_8 : Operation 309 [1/1] (2.73ns)   --->   "%tmp16 = add i16 %tmp17, %tmp_7_2_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 310 [1/1] (1.72ns)   --->   "%tmp14 = add i16 %tmp16, %tmp15" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 311 [1/1] (2.73ns)   --->   "%tmp21 = add i16 %tmp_7_3, %tmp_7_3_1" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
- <State 9> : 0.00ns
-ST_9 : Operation 171 [1/1] (0.00ns)   --->   "ret void" [conv2d.cpp:21]
+ <State 9> : 8.15ns
+ST_9 : Operation 312 [1/1] (0.00ns)   --->   "%tmp_53_cast = zext i7 %tmp_51 to i64" [conv2d.cpp:16]
+ST_9 : Operation 313 [1/1] (0.00ns)   --->   "%a_addr_22 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_53_cast" [conv2d.cpp:16]
+ST_9 : Operation 314 [1/1] (0.00ns)   --->   "%tmp_59_cast = zext i7 %tmp_57 to i64" [conv2d.cpp:16]
+ST_9 : Operation 315 [1/1] (0.00ns)   --->   "%a_addr_23 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_59_cast" [conv2d.cpp:16]
+ST_9 : Operation 316 [1/2] (1.81ns)   --->   "%a_load_20 = load i8* %a_addr_20, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_9 : Operation 317 [1/1] (0.00ns)   --->   "%tmp_3_2_8 = sext i8 %a_load_20 to i16" [conv2d.cpp:16]
+ST_9 : Operation 318 [1/1] (0.00ns)   --->   "%tmp_3_3_2 = sext i8 %b_2_load_3 to i16" [conv2d.cpp:16]
+ST_9 : Operation 319 [1/1] (3.61ns)   --->   "%tmp_7_3_2 = mul i16 %tmp_3_2_8, %tmp_3_3_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 320 [1/2] (1.81ns)   --->   "%a_load_21 = load i8* %a_addr_21, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_9 : Operation 321 [1/1] (0.00ns)   --->   "%tmp_3_3_9 = sext i8 %a_load_21 to i16" [conv2d.cpp:16]
+ST_9 : Operation 322 [1/1] (0.00ns)   --->   "%tmp_3_3_3 = sext i8 %b_3_load_3 to i16" [conv2d.cpp:16]
+ST_9 : Operation 323 [1/1] (2.82ns)   --->   "%tmp_7_3_3 = mul i16 %tmp_3_3_9, %tmp_3_3_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_9 : Operation 324 [2/2] (1.81ns)   --->   "%a_load_22 = load i8* %a_addr_22, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_9 : Operation 325 [2/2] (1.81ns)   --->   "%a_load_23 = load i8* %a_addr_23, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_9 : Operation 326 [1/1] (2.73ns)   --->   "%tmp22 = add i16 %tmp_7_3_2, %tmp_7_3_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 10> : 8.15ns
+ST_10 : Operation 327 [1/1] (0.00ns)   --->   "%tmp_5_4_mid2_v_v = zext i3 %tmp_mid2 to i4" [conv2d.cpp:16]
+ST_10 : Operation 328 [1/1] (1.52ns)   --->   "%tmp_5_4_mid2_v = add i4 %tmp_5_4_mid2_v_v, 4" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 329 [1/1] (0.00ns)   --->   "%tmp_17 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %tmp_5_4_mid2_v, i3 0)" [conv2d.cpp:16]
+ST_10 : Operation 330 [1/1] (0.00ns)   --->   "%p_shl2_cast = zext i7 %tmp_17 to i8" [conv2d.cpp:16]
+ST_10 : Operation 331 [1/1] (0.00ns)   --->   "%tmp_18 = call i5 @_ssdm_op_BitConcatenate.i5.i4.i1(i4 %tmp_5_4_mid2_v, i1 false)" [conv2d.cpp:16]
+ST_10 : Operation 332 [1/1] (0.00ns)   --->   "%p_shl3_cast = zext i5 %tmp_18 to i8" [conv2d.cpp:16]
+ST_10 : Operation 333 [1/1] (1.65ns)   --->   "%tmp_19 = add i8 %p_shl2_cast, %p_shl3_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 334 [1/1] (1.69ns)   --->   "%tmp_27 = add i8 %tmp_2_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 335 [1/1] (0.00ns)   --->   "%tmp_29_cast = zext i8 %tmp_27 to i64" [conv2d.cpp:16]
+ST_10 : Operation 336 [1/1] (0.00ns)   --->   "%a_addr_24 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_29_cast" [conv2d.cpp:16]
+ST_10 : Operation 337 [1/1] (1.69ns)   --->   "%tmp_34 = add i8 %tmp_9_0_1_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 338 [1/1] (0.00ns)   --->   "%tmp_36_cast = zext i8 %tmp_34 to i64" [conv2d.cpp:16]
+ST_10 : Operation 339 [1/1] (0.00ns)   --->   "%a_addr_25 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_36_cast" [conv2d.cpp:16]
+ST_10 : Operation 340 [1/2] (1.81ns)   --->   "%a_load_22 = load i8* %a_addr_22, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_10 : Operation 341 [1/1] (0.00ns)   --->   "%tmp_3_4 = sext i8 %a_load_22 to i16" [conv2d.cpp:16]
+ST_10 : Operation 342 [1/1] (0.00ns)   --->   "%tmp_3_3_4 = sext i8 %b_4_load_3 to i16" [conv2d.cpp:16]
+ST_10 : Operation 343 [1/1] (3.61ns)   --->   "%tmp_7_3_4 = mul i16 %tmp_3_4, %tmp_3_3_4" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 344 [1/2] (1.81ns)   --->   "%a_load_23 = load i8* %a_addr_23, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_10 : Operation 345 [1/1] (0.00ns)   --->   "%tmp_3_5 = sext i8 %a_load_23 to i16" [conv2d.cpp:16]
+ST_10 : Operation 346 [1/1] (0.00ns)   --->   "%tmp_3_3_5 = sext i8 %b_5_load_3 to i16" [conv2d.cpp:16]
+ST_10 : Operation 347 [1/1] (2.82ns)   --->   "%tmp_7_3_5 = mul i16 %tmp_3_5, %tmp_3_3_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_10 : Operation 348 [2/2] (1.81ns)   --->   "%a_load_24 = load i8* %a_addr_24, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_10 : Operation 349 [2/2] (1.81ns)   --->   "%a_load_25 = load i8* %a_addr_25, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_10 : Operation 350 [1/1] (1.72ns)   --->   "%tmp20 = add i16 %tmp22, %tmp21" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 351 [1/1] (2.73ns)   --->   "%tmp24 = add i16 %tmp_7_3_4, %tmp_7_3_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 11> : 5.42ns
+ST_11 : Operation 352 [1/1] (1.69ns)   --->   "%tmp_40 = add i8 %tmp_9_0_2_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 353 [1/1] (0.00ns)   --->   "%tmp_42_cast = zext i8 %tmp_40 to i64" [conv2d.cpp:16]
+ST_11 : Operation 354 [1/1] (0.00ns)   --->   "%a_addr_26 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_42_cast" [conv2d.cpp:16]
+ST_11 : Operation 355 [1/1] (0.00ns)   --->   "%tmp_9_0_3_cast = zext i3 %tmp_8_0_3 to i8" [conv2d.cpp:16]
+ST_11 : Operation 356 [1/1] (1.69ns)   --->   "%tmp_46 = add i8 %tmp_9_0_3_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 357 [1/1] (0.00ns)   --->   "%tmp_48_cast = zext i8 %tmp_46 to i64" [conv2d.cpp:16]
+ST_11 : Operation 358 [1/1] (0.00ns)   --->   "%a_addr_27 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_48_cast" [conv2d.cpp:16]
+ST_11 : Operation 359 [1/2] (1.81ns)   --->   "%a_load_24 = load i8* %a_addr_24, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_11 : Operation 360 [1/2] (1.81ns)   --->   "%a_load_25 = load i8* %a_addr_25, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_11 : Operation 361 [1/1] (0.00ns)   --->   "%tmp_4_1 = sext i8 %a_load_25 to i16" [conv2d.cpp:16]
+ST_11 : Operation 362 [1/1] (0.00ns)   --->   "%tmp_3_4_1 = sext i8 %b_1_load_4 to i16" [conv2d.cpp:16]
+ST_11 : Operation 363 [1/1] (3.61ns)   --->   "%tmp_7_4_1 = mul i16 %tmp_4_1, %tmp_3_4_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 364 [2/2] (1.81ns)   --->   "%a_load_26 = load i8* %a_addr_26, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_11 : Operation 365 [2/2] (1.81ns)   --->   "%a_load_27 = load i8* %a_addr_27, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+
+ <State 12> : 7.36ns
+ST_12 : Operation 366 [1/1] (1.69ns)   --->   "%tmp_52 = add i8 %tmp_9_0_4_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 367 [1/1] (0.00ns)   --->   "%tmp_54_cast = zext i8 %tmp_52 to i64" [conv2d.cpp:16]
+ST_12 : Operation 368 [1/1] (0.00ns)   --->   "%a_addr_28 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_54_cast" [conv2d.cpp:16]
+ST_12 : Operation 369 [1/1] (1.69ns)   --->   "%tmp_58 = add i8 %tmp_9_0_5_cast, %tmp_19" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 370 [1/1] (0.00ns)   --->   "%tmp_60_cast = zext i8 %tmp_58 to i64" [conv2d.cpp:16]
+ST_12 : Operation 371 [1/1] (0.00ns)   --->   "%a_addr_29 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_60_cast" [conv2d.cpp:16]
+ST_12 : Operation 372 [1/2] (1.81ns)   --->   "%a_load_26 = load i8* %a_addr_26, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_12 : Operation 373 [1/1] (0.00ns)   --->   "%tmp_4_2 = sext i8 %a_load_26 to i16" [conv2d.cpp:16]
+ST_12 : Operation 374 [1/1] (0.00ns)   --->   "%tmp_3_4_2 = sext i8 %b_2_load_4 to i16" [conv2d.cpp:16]
+ST_12 : Operation 375 [1/1] (2.82ns)   --->   "%tmp_7_4_2 = mul i16 %tmp_4_2, %tmp_3_4_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_12 : Operation 376 [1/2] (1.81ns)   --->   "%a_load_27 = load i8* %a_addr_27, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_12 : Operation 377 [1/1] (0.00ns)   --->   "%tmp_4_3 = sext i8 %a_load_27 to i16" [conv2d.cpp:16]
+ST_12 : Operation 378 [1/1] (0.00ns)   --->   "%tmp_3_4_3 = sext i8 %b_3_load_4 to i16" [conv2d.cpp:16]
+ST_12 : Operation 379 [1/1] (3.61ns)   --->   "%tmp_7_4_3 = mul i16 %tmp_4_3, %tmp_3_4_3" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 380 [2/2] (1.81ns)   --->   "%a_load_28 = load i8* %a_addr_28, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_12 : Operation 381 [2/2] (1.81ns)   --->   "%a_load_29 = load i8* %a_addr_29, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_12 : Operation 382 [1/1] (2.73ns)   --->   "%tmp26 = add i16 %tmp_7_4_1, %tmp_7_4_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 13> : 7.36ns
+ST_13 : Operation 383 [1/1] (1.52ns)   --->   "%tmp_5_5_mid2_v = add i4 %tmp_5_4_mid2_v_v, 5" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 384 [1/1] (0.00ns)   --->   "%tmp_20 = call i7 @_ssdm_op_BitConcatenate.i7.i4.i3(i4 %tmp_5_5_mid2_v, i3 0)" [conv2d.cpp:16]
+ST_13 : Operation 385 [1/1] (0.00ns)   --->   "%p_shl_cast = zext i7 %tmp_20 to i8" [conv2d.cpp:16]
+ST_13 : Operation 386 [1/1] (0.00ns)   --->   "%tmp_21 = call i5 @_ssdm_op_BitConcatenate.i5.i4.i1(i4 %tmp_5_5_mid2_v, i1 false)" [conv2d.cpp:16]
+ST_13 : Operation 387 [1/1] (0.00ns)   --->   "%p_shl1_cast = zext i5 %tmp_21 to i8" [conv2d.cpp:16]
+ST_13 : Operation 388 [1/1] (1.65ns)   --->   "%tmp_22 = add i8 %p_shl_cast, %p_shl1_cast" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 389 [1/1] (1.69ns)   --->   "%tmp_28 = add i8 %tmp_2_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 390 [1/1] (0.00ns)   --->   "%tmp_30_cast = zext i8 %tmp_28 to i64" [conv2d.cpp:16]
+ST_13 : Operation 391 [1/1] (0.00ns)   --->   "%a_addr_30 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_30_cast" [conv2d.cpp:16]
+ST_13 : Operation 392 [1/1] (1.69ns)   --->   "%tmp_35 = add i8 %tmp_9_0_1_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 393 [1/1] (0.00ns)   --->   "%tmp_37_cast = zext i8 %tmp_35 to i64" [conv2d.cpp:16]
+ST_13 : Operation 394 [1/1] (0.00ns)   --->   "%a_addr_31 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_37_cast" [conv2d.cpp:16]
+ST_13 : Operation 395 [1/1] (0.00ns)   --->   "%tmp_4_10 = sext i8 %a_load_24 to i16" [conv2d.cpp:16]
+ST_13 : Operation 396 [1/1] (0.00ns)   --->   "%tmp_3_4_11 = sext i8 %b_0_load_4 to i16" [conv2d.cpp:16]
+ST_13 : Operation 397 [1/1] (2.82ns)   --->   "%tmp_7_4 = mul i16 %tmp_4_10, %tmp_3_4_11" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 398 [1/2] (1.81ns)   --->   "%a_load_28 = load i8* %a_addr_28, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_13 : Operation 399 [1/1] (0.00ns)   --->   "%tmp_4_4 = sext i8 %a_load_28 to i16" [conv2d.cpp:16]
+ST_13 : Operation 400 [1/1] (0.00ns)   --->   "%tmp_3_4_4 = sext i8 %b_4_load_4 to i16" [conv2d.cpp:16]
+ST_13 : Operation 401 [1/1] (2.82ns)   --->   "%tmp_7_4_4 = mul i16 %tmp_4_4, %tmp_3_4_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 402 [1/2] (1.81ns)   --->   "%a_load_29 = load i8* %a_addr_29, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_13 : Operation 403 [1/1] (0.00ns)   --->   "%tmp_4_5 = sext i8 %a_load_29 to i16" [conv2d.cpp:16]
+ST_13 : Operation 404 [1/1] (0.00ns)   --->   "%tmp_3_4_5 = sext i8 %b_5_load_4 to i16" [conv2d.cpp:16]
+ST_13 : Operation 405 [1/1] (3.61ns)   --->   "%tmp_7_4_5 = mul i16 %tmp_4_5, %tmp_3_4_5" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 406 [2/2] (1.81ns)   --->   "%a_load_30 = load i8* %a_addr_30, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_13 : Operation 407 [2/2] (1.81ns)   --->   "%a_load_31 = load i8* %a_addr_31, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_13 : Operation 408 [1/1] (2.73ns)   --->   "%tmp25 = add i16 %tmp26, %tmp_7_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_13 : Operation 409 [1/1] (1.72ns)   --->   "%tmp23 = add i16 %tmp25, %tmp24" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 410 [1/1] (2.73ns)   --->   "%tmp29 = add i16 %tmp_7_4_3, %tmp_7_4_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 14> : 7.36ns
+ST_14 : Operation 411 [1/1] (1.69ns)   --->   "%tmp_41 = add i8 %tmp_9_0_2_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 412 [1/1] (0.00ns)   --->   "%tmp_43_cast = zext i8 %tmp_41 to i64" [conv2d.cpp:16]
+ST_14 : Operation 413 [1/1] (0.00ns)   --->   "%a_addr_32 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_43_cast" [conv2d.cpp:16]
+ST_14 : Operation 414 [1/1] (1.69ns)   --->   "%tmp_47 = add i8 %tmp_9_0_3_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 415 [1/1] (0.00ns)   --->   "%tmp_49_cast = zext i8 %tmp_47 to i64" [conv2d.cpp:16]
+ST_14 : Operation 416 [1/1] (0.00ns)   --->   "%a_addr_33 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_49_cast" [conv2d.cpp:16]
+ST_14 : Operation 417 [1/2] (1.81ns)   --->   "%a_load_30 = load i8* %a_addr_30, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_14 : Operation 418 [1/1] (0.00ns)   --->   "%tmp_5_12 = sext i8 %a_load_30 to i16" [conv2d.cpp:16]
+ST_14 : Operation 419 [1/1] (0.00ns)   --->   "%tmp_3_5_13 = sext i8 %b_0_load_5 to i16" [conv2d.cpp:16]
+ST_14 : Operation 420 [1/1] (2.82ns)   --->   "%tmp_7_5 = mul i16 %tmp_5_12, %tmp_3_5_13" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 421 [1/2] (1.81ns)   --->   "%a_load_31 = load i8* %a_addr_31, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_14 : Operation 422 [1/1] (0.00ns)   --->   "%tmp_5_1 = sext i8 %a_load_31 to i16" [conv2d.cpp:16]
+ST_14 : Operation 423 [1/1] (0.00ns)   --->   "%tmp_3_5_1 = sext i8 %b_1_load_5 to i16" [conv2d.cpp:16]
+ST_14 : Operation 424 [1/1] (3.61ns)   --->   "%tmp_7_5_1 = mul i16 %tmp_5_1, %tmp_3_5_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 425 [2/2] (1.81ns)   --->   "%a_load_32 = load i8* %a_addr_32, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_14 : Operation 426 [2/2] (1.81ns)   --->   "%a_load_33 = load i8* %a_addr_33, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_14 : Operation 427 [1/1] (2.73ns)   --->   "%tmp30 = add i16 %tmp_7_4_5, %tmp_7_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 15> : 7.36ns
+ST_15 : Operation 428 [1/1] (1.65ns)   --->   "%tmp_23 = add i8 %tmp_2_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 429 [1/1] (1.65ns)   --->   "%tmp_30 = add i8 %tmp_9_0_1_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 430 [1/1] (1.65ns)   --->   "%tmp_36 = add i8 %tmp_9_0_2_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 431 [1/1] (1.65ns)   --->   "%tmp_42 = add i8 %tmp_9_0_3_cast, %tmp_6" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 432 [1/1] (1.65ns)   --->   "%tmp_43 = add i8 %tmp_9_0_3_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 433 [1/1] (1.65ns)   --->   "%tmp_49 = add i8 %tmp_9_0_4_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 434 [1/1] (1.69ns)   --->   "%tmp_53 = add i8 %tmp_9_0_4_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 435 [1/1] (0.00ns)   --->   "%tmp_55_cast = zext i8 %tmp_53 to i64" [conv2d.cpp:16]
+ST_15 : Operation 436 [1/1] (0.00ns)   --->   "%a_addr_34 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_55_cast" [conv2d.cpp:16]
+ST_15 : Operation 437 [1/1] (1.65ns)   --->   "%tmp_55 = add i8 %tmp_9_0_5_cast, %tmp_10" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 438 [1/1] (1.69ns)   --->   "%tmp_59 = add i8 %tmp_9_0_5_cast, %tmp_22" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 439 [1/1] (0.00ns)   --->   "%tmp_61_cast = zext i8 %tmp_59 to i64" [conv2d.cpp:16]
+ST_15 : Operation 440 [1/1] (0.00ns)   --->   "%a_addr_35 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_61_cast" [conv2d.cpp:16]
+ST_15 : Operation 441 [1/2] (1.81ns)   --->   "%a_load_32 = load i8* %a_addr_32, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_15 : Operation 442 [1/1] (0.00ns)   --->   "%tmp_5_2 = sext i8 %a_load_32 to i16" [conv2d.cpp:16]
+ST_15 : Operation 443 [1/1] (0.00ns)   --->   "%tmp_3_5_2 = sext i8 %b_2_load_5 to i16" [conv2d.cpp:16]
+ST_15 : Operation 444 [1/1] (2.82ns)   --->   "%tmp_7_5_2 = mul i16 %tmp_5_2, %tmp_3_5_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_15 : Operation 445 [1/2] (1.81ns)   --->   "%a_load_33 = load i8* %a_addr_33, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_15 : Operation 446 [2/2] (1.81ns)   --->   "%a_load_34 = load i8* %a_addr_34, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_15 : Operation 447 [2/2] (1.81ns)   --->   "%a_load_35 = load i8* %a_addr_35, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_15 : Operation 448 [1/1] (2.73ns)   --->   "%tmp32 = add i16 %tmp_7_5_1, %tmp_7_5_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 16> : 8.15ns
+ST_16 : Operation 449 [1/1] (0.00ns)   --->   "%tmp_25_cast = zext i8 %tmp_23 to i64" [conv2d.cpp:16]
+ST_16 : Operation 450 [1/1] (0.00ns)   --->   "%a_addr = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_25_cast" [conv2d.cpp:16]
+ST_16 : Operation 451 [2/2] (1.81ns)   --->   "%a_load = load i8* %a_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_16 : Operation 452 [1/1] (0.00ns)   --->   "%tmp_32_cast = zext i8 %tmp_30 to i64" [conv2d.cpp:16]
+ST_16 : Operation 453 [1/1] (0.00ns)   --->   "%a_addr_1 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_32_cast" [conv2d.cpp:16]
+ST_16 : Operation 454 [2/2] (1.81ns)   --->   "%a_load_1 = load i8* %a_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_16 : Operation 455 [1/2] (1.81ns)   --->   "%a_load_34 = load i8* %a_addr_34, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_16 : Operation 456 [1/1] (0.00ns)   --->   "%tmp_5_4 = sext i8 %a_load_34 to i16" [conv2d.cpp:16]
+ST_16 : Operation 457 [1/1] (0.00ns)   --->   "%tmp_3_5_4 = sext i8 %b_4_load_5 to i16" [conv2d.cpp:16]
+ST_16 : Operation 458 [1/1] (3.61ns)   --->   "%tmp_7_5_4 = mul i16 %tmp_5_4, %tmp_3_5_4" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 459 [1/2] (1.81ns)   --->   "%a_load_35 = load i8* %a_addr_35, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_16 : Operation 460 [1/1] (0.00ns)   --->   "%tmp_5_5 = sext i8 %a_load_35 to i16" [conv2d.cpp:16]
+ST_16 : Operation 461 [1/1] (0.00ns)   --->   "%tmp_3_5_5 = sext i8 %b_5_load_5 to i16" [conv2d.cpp:16]
+ST_16 : Operation 462 [1/1] (2.82ns)   --->   "%tmp_7_5_5 = mul i16 %tmp_5_5, %tmp_3_5_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_16 : Operation 463 [1/1] (2.73ns)   --->   "%tmp34 = add i16 %tmp_7_5_4, %tmp_7_5_5" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 17> : 10.46ns
+ST_17 : Operation 464 [1/2] (1.81ns)   --->   "%a_load = load i8* %a_addr, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_17 : Operation 465 [1/1] (0.00ns)   --->   "%tmp_s = sext i8 %a_load to i16" [conv2d.cpp:16]
+ST_17 : Operation 466 [1/1] (0.00ns)   --->   "%tmp_4 = sext i8 %b_0_load to i16" [conv2d.cpp:16]
+ST_17 : Operation 467 [1/1] (2.82ns)   --->   "%tmp_7 = mul i16 %tmp_s, %tmp_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 468 [1/2] (1.81ns)   --->   "%a_load_1 = load i8* %a_addr_1, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_17 : Operation 469 [1/1] (0.00ns)   --->   "%tmp_0_1 = sext i8 %a_load_1 to i16" [conv2d.cpp:16]
+ST_17 : Operation 470 [1/1] (0.00ns)   --->   "%tmp_3_0_1 = sext i8 %b_1_load to i16" [conv2d.cpp:16]
+ST_17 : Operation 471 [1/1] (3.61ns)   --->   "%tmp_7_0_1 = mul i16 %tmp_0_1, %tmp_3_0_1" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 472 [1/1] (0.00ns)   --->   "%tmp_38_cast = zext i8 %tmp_36 to i64" [conv2d.cpp:16]
+ST_17 : Operation 473 [1/1] (0.00ns)   --->   "%a_addr_2 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_38_cast" [conv2d.cpp:16]
+ST_17 : Operation 474 [2/2] (1.81ns)   --->   "%a_load_2 = load i8* %a_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_17 : Operation 475 [1/1] (0.00ns)   --->   "%tmp_44_cast = zext i8 %tmp_42 to i64" [conv2d.cpp:16]
+ST_17 : Operation 476 [1/1] (0.00ns)   --->   "%a_addr_3 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_44_cast" [conv2d.cpp:16]
+ST_17 : Operation 477 [2/2] (1.81ns)   --->   "%a_load_3 = load i8* %a_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_17 : Operation 478 [1/1] (0.00ns)   --->   "%tmp_5_3 = sext i8 %a_load_33 to i16" [conv2d.cpp:16]
+ST_17 : Operation 479 [1/1] (0.00ns)   --->   "%tmp_3_5_3 = sext i8 %b_3_load_5 to i16" [conv2d.cpp:16]
+ST_17 : Operation 480 [1/1] (2.82ns)   --->   "%tmp_7_5_3 = mul i16 %tmp_5_3, %tmp_3_5_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 481 [1/1] (2.73ns)   --->   "%tmp4 = add i16 %tmp_7_0_1, %tmp_7" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 482 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp28 = add i16 %tmp30, %tmp29" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 483 [1/1] (2.73ns)   --->   "%tmp33 = add i16 %tmp34, %tmp_7_5_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_17 : Operation 484 [1/1] (1.72ns)   --->   "%tmp31 = add i16 %tmp33, %tmp32" [conv2d.cpp:16]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.72> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 485 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp27 = add i16 %tmp31, %tmp28" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+ <State 18> : 8.15ns
+ST_18 : Operation 486 [1/2] (1.81ns)   --->   "%a_load_2 = load i8* %a_addr_2, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_18 : Operation 487 [1/1] (0.00ns)   --->   "%tmp_0_2 = sext i8 %a_load_2 to i16" [conv2d.cpp:16]
+ST_18 : Operation 488 [1/1] (0.00ns)   --->   "%tmp_3_0_2 = sext i8 %b_2_load to i16" [conv2d.cpp:16]
+ST_18 : Operation 489 [1/1] (3.61ns)   --->   "%tmp_7_0_2 = mul i16 %tmp_0_2, %tmp_3_0_2" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 490 [1/1] (0.00ns)   --->   "%tmp_45_cast = zext i8 %tmp_43 to i64" [conv2d.cpp:16]
+ST_18 : Operation 491 [1/1] (0.00ns)   --->   "%a_addr_9 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_45_cast" [conv2d.cpp:16]
+ST_18 : Operation 492 [1/2] (1.81ns)   --->   "%a_load_3 = load i8* %a_addr_3, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_18 : Operation 493 [1/1] (0.00ns)   --->   "%tmp_0_3 = sext i8 %a_load_3 to i16" [conv2d.cpp:16]
+ST_18 : Operation 494 [1/1] (0.00ns)   --->   "%tmp_3_0_3 = sext i8 %b_3_load to i16" [conv2d.cpp:16]
+ST_18 : Operation 495 [1/1] (2.82ns)   --->   "%tmp_7_0_3 = mul i16 %tmp_0_3, %tmp_3_0_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_18 : Operation 496 [1/1] (0.00ns)   --->   "%tmp_51_cast = zext i8 %tmp_49 to i64" [conv2d.cpp:16]
+ST_18 : Operation 497 [1/1] (0.00ns)   --->   "%a_addr_10 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_51_cast" [conv2d.cpp:16]
+ST_18 : Operation 498 [2/2] (1.81ns)   --->   "%a_load_9 = load i8* %a_addr_9, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_18 : Operation 499 [2/2] (1.81ns)   --->   "%a_load_10 = load i8* %a_addr_10, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_18 : Operation 500 [1/1] (2.73ns)   --->   "%tmp5 = add i16 %tmp_7_0_2, %tmp_7_0_3" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_18 : Operation 501 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp19 = add i16 %tmp23, %tmp20" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_18 : Operation 502 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp18 = add i16 %tmp27, %tmp19" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+ <State 19> : 8.15ns
+ST_19 : Operation 503 [1/1] (0.00ns)   --->   "%tmp_27_cast = zext i7 %tmp_25 to i64" [conv2d.cpp:16]
+ST_19 : Operation 504 [1/1] (0.00ns)   --->   "%a_addr_12 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_27_cast" [conv2d.cpp:16]
+ST_19 : Operation 505 [1/1] (0.00ns)   --->   "%tmp_57_cast = zext i8 %tmp_55 to i64" [conv2d.cpp:16]
+ST_19 : Operation 506 [1/1] (0.00ns)   --->   "%a_addr_11 = getelementptr [100 x i8]* %a, i64 0, i64 %tmp_57_cast" [conv2d.cpp:16]
+ST_19 : Operation 507 [1/2] (1.81ns)   --->   "%a_load_9 = load i8* %a_addr_9, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_19 : Operation 508 [1/1] (0.00ns)   --->   "%tmp_1_3 = sext i8 %a_load_9 to i16" [conv2d.cpp:16]
+ST_19 : Operation 509 [1/1] (0.00ns)   --->   "%tmp_3_1_3 = sext i8 %b_3_load_1 to i16" [conv2d.cpp:16]
+ST_19 : Operation 510 [1/1] (3.61ns)   --->   "%tmp_7_1_3 = mul i16 %tmp_1_3, %tmp_3_1_3" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 511 [1/2] (1.81ns)   --->   "%a_load_10 = load i8* %a_addr_10, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_19 : Operation 512 [1/1] (0.00ns)   --->   "%tmp_1_4 = sext i8 %a_load_10 to i16" [conv2d.cpp:16]
+ST_19 : Operation 513 [1/1] (0.00ns)   --->   "%tmp_3_1_4 = sext i8 %b_4_load_1 to i16" [conv2d.cpp:16]
+ST_19 : Operation 514 [1/1] (2.82ns)   --->   "%tmp_7_1_4 = mul i16 %tmp_1_4, %tmp_3_1_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_19 : Operation 515 [2/2] (1.81ns)   --->   "%a_load_11 = load i8* %a_addr_11, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_19 : Operation 516 [2/2] (1.81ns)   --->   "%a_load_12 = load i8* %a_addr_12, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_19 : Operation 517 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp3 = add i16 %tmp5, %tmp4" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_19 : Operation 518 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp2 = add i16 %tmp6, %tmp3" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_19 : Operation 519 [1/1] (2.73ns)   --->   "%tmp12 = add i16 %tmp_7_1_3, %tmp_7_1_4" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 20> : 8.15ns
+ST_20 : Operation 520 [1/2] (1.81ns)   --->   "%a_load_11 = load i8* %a_addr_11, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_20 : Operation 521 [1/1] (0.00ns)   --->   "%tmp_1_5 = sext i8 %a_load_11 to i16" [conv2d.cpp:16]
+ST_20 : Operation 522 [1/1] (0.00ns)   --->   "%tmp_3_1_5 = sext i8 %b_5_load_1 to i16" [conv2d.cpp:16]
+ST_20 : Operation 523 [1/1] (3.61ns)   --->   "%tmp_7_1_5 = mul i16 %tmp_1_5, %tmp_3_1_5" [conv2d.cpp:16]   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 524 [1/2] (1.81ns)   --->   "%a_load_12 = load i8* %a_addr_12, align 1" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_20 : Operation 525 [1/1] (0.00ns)   --->   "%tmp_2_4 = sext i8 %a_load_12 to i16" [conv2d.cpp:16]
+ST_20 : Operation 526 [1/1] (0.00ns)   --->   "%tmp_3_2 = sext i8 %b_0_load_2 to i16" [conv2d.cpp:16]
+ST_20 : Operation 527 [1/1] (2.82ns)   --->   "%tmp_7_2 = mul i16 %tmp_2_4, %tmp_3_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_20 : Operation 528 [1/1] (2.73ns)   --->   "%tmp13 = add i16 %tmp_7_1_5, %tmp_7_2" [conv2d.cpp:16]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 5.55> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 21> : 8.13ns
+ST_21 : Operation 529 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([8 x i8]* @Row_Col_str)"
+ST_21 : Operation 530 [1/1] (0.00ns)   --->   "%tmp_mid2_cast = zext i3 %tmp_mid2 to i6" [conv2d.cpp:13]
+ST_21 : Operation 531 [1/1] (0.00ns)   --->   "%tmp_2 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %tmp_mid2, i2 0)" [conv2d.cpp:13]
+ST_21 : Operation 532 [1/1] (0.00ns)   --->   "%p_shl10_cast = zext i5 %tmp_2 to i6" [conv2d.cpp:13]
+ST_21 : Operation 533 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp_9 = add i6 %p_shl10_cast, %tmp_mid2_cast" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 534 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_21 : Operation 535 [1/1] (0.00ns)   --->   "%tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([4 x i8]* @p_str3) nounwind" [conv2d.cpp:11]
+ST_21 : Operation 536 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [conv2d.cpp:12]
+ST_21 : Operation 537 [1/1] (0.00ns)   --->   "%tmp_2_cast1 = zext i3 %j_mid2 to i6" [conv2d.cpp:16]
+ST_21 : Operation 538 [1/1] (2.84ns) (root node of TernaryAdder)   --->   "%tmp_29 = add i6 %tmp_2_cast1, %tmp_9" [conv2d.cpp:13]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 539 [1/1] (0.00ns)   --->   "%tmp_31_cast = zext i6 %tmp_29 to i64" [conv2d.cpp:13]
+ST_21 : Operation 540 [1/1] (0.00ns)   --->   "%res_addr = getelementptr [25 x i16]* %res, i64 0, i64 %tmp_31_cast" [conv2d.cpp:13]
+ST_21 : Operation 541 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp11 = add i16 %tmp13, %tmp12" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 542 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp10 = add i16 %tmp14, %tmp11" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 543 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%tmp1 = add i16 %tmp10, %tmp2" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 544 [1/1] (3.18ns) (root node of TernaryAdder)   --->   "%tmp_10_5_5 = add i16 %tmp18, %tmp1" [conv2d.cpp:16]   --->   Core 80 'TAddSub' <Latency = 0> <II = 1> <Delay = 1.59> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_21 : Operation 545 [1/1] (1.75ns)   --->   "store i16 %tmp_10_5_5, i16* %res_addr, align 2" [conv2d.cpp:16]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.75> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 25> <RAM>
+ST_21 : Operation 546 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecRegionEnd([4 x i8]* @p_str3, i32 %tmp_3) nounwind" [conv2d.cpp:19]
+ST_21 : Operation 547 [1/1] (0.00ns)   --->   "br label %1"
+
+ <State 22> : 0.00ns
+ST_22 : Operation 548 [1/1] (0.00ns)   --->   "ret void" [conv2d.cpp:21]
 
 
 ============================================================
@@ -288,56 +704,134 @@ Target clock period: 10ns, clock uncertainty: 1.25ns.
 
  <State 1>: 1.3ns
 The critical path consists of the following:
-	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [23]  (1.3 ns)
+	multiplexor before 'phi' operation ('indvar_flatten') with incoming values : ('indvar_flatten_next') [56]  (1.3 ns)
 
- <State 2>: 8.42ns
+ <State 2>: 7.27ns
 The critical path consists of the following:
-	'phi' operation ('i', conv2d.cpp:13) with incoming values : ('tmp_mid2', conv2d.cpp:13) [24]  (0 ns)
-	'add' operation ('i', conv2d.cpp:16) [26]  (1.27 ns)
-	'select' operation ('tmp_mid2', conv2d.cpp:13) [35]  (0.813 ns)
-	'add' operation ('tmp_8_2_mid2_v', conv2d.cpp:16) [50]  (1.4 ns)
-	'add' operation ('tmp_9', conv2d.cpp:16) [54]  (1.57 ns)
-	'add' operation ('tmp_19', conv2d.cpp:16) [102]  (1.61 ns)
-	'getelementptr' operation ('a_addr_8', conv2d.cpp:16) [104]  (0 ns)
-	'load' operation ('a_load_8', conv2d.cpp:16) on array 'a' [135]  (1.75 ns)
+	'phi' operation ('i', conv2d.cpp:13) with incoming values : ('tmp_mid2', conv2d.cpp:13) [57]  (0 ns)
+	'add' operation ('i', conv2d.cpp:16) [59]  (1.4 ns)
+	'select' operation ('tmp_mid2', conv2d.cpp:13) [68]  (0.795 ns)
+	'add' operation ('tmp_6', conv2d.cpp:16) [74]  (1.61 ns)
+	'add' operation ('tmp_54', conv2d.cpp:16) [253]  (1.65 ns)
+	'getelementptr' operation ('a_addr_5', conv2d.cpp:16) [255]  (0 ns)
+	'load' operation ('a_load_5', conv2d.cpp:16) on array 'a' [271]  (1.81 ns)
 
- <State 3>: 8.1ns
+ <State 3>: 8.15ns
 The critical path consists of the following:
-	'load' operation ('a_load_7', conv2d.cpp:16) on array 'a' [130]  (1.75 ns)
-	'mul' operation ('tmp_13_2_1', conv2d.cpp:16) [134]  (3.61 ns)
-	'add' operation ('tmp7', conv2d.cpp:16) [144]  (2.73 ns)
+	'load' operation ('a_load_4', conv2d.cpp:16) on array 'a' [245]  (1.81 ns)
+	'mul' operation ('tmp_7_0_4', conv2d.cpp:16) [249]  (3.61 ns)
+	'add' operation ('tmp7', conv2d.cpp:16) [429]  (2.73 ns)
 
- <State 4>: 8.1ns
+ <State 4>: 5.42ns
 The critical path consists of the following:
-	'load' operation ('a_load_1', conv2d.cpp:16) on array 'a' [89]  (1.75 ns)
-	'mul' operation ('tmp_13_0_1', conv2d.cpp:16) [93]  (3.61 ns)
-	'add' operation ('tmp2', conv2d.cpp:16) [140]  (2.73 ns)
+	'load' operation ('a_load_7', conv2d.cpp:16) on array 'a' [281]  (1.81 ns)
+	'mul' operation ('tmp_7_1_1', conv2d.cpp:16) [285]  (3.61 ns)
 
- <State 5>: 8.1ns
+ <State 5>: 7.36ns
 The critical path consists of the following:
-	'load' operation ('a_load_2', conv2d.cpp:16) on array 'a' [105]  (1.75 ns)
-	'mul' operation ('tmp_13_0_2', conv2d.cpp:16) [109]  (3.61 ns)
-	'add' operation ('tmp3', conv2d.cpp:16) [141]  (2.73 ns)
+	'load' operation ('a_load_8', conv2d.cpp:16) on array 'a' [286]  (1.81 ns)
+	'mul' operation ('tmp_7_1_2', conv2d.cpp:16) [290]  (2.82 ns)
+	'add' operation ('tmp9', conv2d.cpp:16) [430]  (2.73 ns)
 
- <State 6>: 8.1ns
+ <State 6>: 7.36ns
 The critical path consists of the following:
-	'load' operation ('a_load_4', conv2d.cpp:16) on array 'a' [115]  (1.75 ns)
-	'mul' operation ('tmp_13_1_1', conv2d.cpp:16) [119]  (3.61 ns)
-	'add' operation ('tmp5', conv2d.cpp:16) [143]  (2.73 ns)
+	'load' operation ('a_load_14', conv2d.cpp:16) on array 'a' [316]  (1.81 ns)
+	'mul' operation ('tmp_7_2_2', conv2d.cpp:16) [320]  (2.82 ns)
+	'add' operation ('tmp15', conv2d.cpp:16) [437]  (2.73 ns)
 
- <State 7>: 7.3ns
+ <State 7>: 8.15ns
 The critical path consists of the following:
-	'load' operation ('a_load_6', conv2d.cpp:16) on array 'a' [125]  (1.75 ns)
-	'mul' operation ('tmp_13_2', conv2d.cpp:16) [129]  (2.82 ns)
-	'add' operation ('tmp6', conv2d.cpp:16) [145]  (2.73 ns)
+	'load' operation ('a_load_16', conv2d.cpp:16) on array 'a' [326]  (1.81 ns)
+	'mul' operation ('tmp_7_2_4', conv2d.cpp:16) [330]  (3.61 ns)
+	'add' operation ('tmp17', conv2d.cpp:16) [438]  (2.73 ns)
 
- <State 8>: 6.67ns
+ <State 8>: 8.15ns
 The critical path consists of the following:
-	'add' operation ('tmp4', conv2d.cpp:16) [146]  (1.73 ns)
-	'add' operation ('tmp_14_2_2', conv2d.cpp:16) [147]  (3.19 ns)
-	'store' operation (conv2d.cpp:16) of variable 'tmp_14_2_2', conv2d.cpp:16 on array 'res' [148]  (1.75 ns)
+	'load' operation ('a_load_18', conv2d.cpp:16) on array 'a' [336]  (1.81 ns)
+	'mul' operation ('tmp_7_3', conv2d.cpp:16) [340]  (3.61 ns)
+	'add' operation ('tmp21', conv2d.cpp:16) [443]  (2.73 ns)
 
- <State 9>: 0ns
+ <State 9>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_20', conv2d.cpp:16) on array 'a' [346]  (1.81 ns)
+	'mul' operation ('tmp_7_3_2', conv2d.cpp:16) [350]  (3.61 ns)
+	'add' operation ('tmp22', conv2d.cpp:16) [444]  (2.73 ns)
+
+ <State 10>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_22', conv2d.cpp:16) on array 'a' [356]  (1.81 ns)
+	'mul' operation ('tmp_7_3_4', conv2d.cpp:16) [360]  (3.61 ns)
+	'add' operation ('tmp24', conv2d.cpp:16) [446]  (2.73 ns)
+
+ <State 11>: 5.42ns
+The critical path consists of the following:
+	'load' operation ('a_load_25', conv2d.cpp:16) on array 'a' [371]  (1.81 ns)
+	'mul' operation ('tmp_7_4_1', conv2d.cpp:16) [375]  (3.61 ns)
+
+ <State 12>: 7.36ns
+The critical path consists of the following:
+	'load' operation ('a_load_26', conv2d.cpp:16) on array 'a' [376]  (1.81 ns)
+	'mul' operation ('tmp_7_4_2', conv2d.cpp:16) [380]  (2.82 ns)
+	'add' operation ('tmp26', conv2d.cpp:16) [447]  (2.73 ns)
+
+ <State 13>: 7.36ns
+The critical path consists of the following:
+	'load' operation ('a_load_28', conv2d.cpp:16) on array 'a' [386]  (1.81 ns)
+	'mul' operation ('tmp_7_4_4', conv2d.cpp:16) [390]  (2.82 ns)
+	'add' operation ('tmp29', conv2d.cpp:16) [451]  (2.73 ns)
+
+ <State 14>: 7.36ns
+The critical path consists of the following:
+	'load' operation ('a_load_30', conv2d.cpp:16) on array 'a' [396]  (1.81 ns)
+	'mul' operation ('tmp_7_5', conv2d.cpp:16) [400]  (2.82 ns)
+	'add' operation ('tmp30', conv2d.cpp:16) [452]  (2.73 ns)
+
+ <State 15>: 7.36ns
+The critical path consists of the following:
+	'load' operation ('a_load_32', conv2d.cpp:16) on array 'a' [406]  (1.81 ns)
+	'mul' operation ('tmp_7_5_2', conv2d.cpp:16) [410]  (2.82 ns)
+	'add' operation ('tmp32', conv2d.cpp:16) [454]  (2.73 ns)
+
+ <State 16>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_34', conv2d.cpp:16) on array 'a' [416]  (1.81 ns)
+	'mul' operation ('tmp_7_5_4', conv2d.cpp:16) [420]  (3.61 ns)
+	'add' operation ('tmp34', conv2d.cpp:16) [455]  (2.73 ns)
+
+ <State 17>: 10.5ns
+The critical path consists of the following:
+	'mul' operation ('tmp_7_5_3', conv2d.cpp:16) [415]  (2.82 ns)
+	'add' operation ('tmp33', conv2d.cpp:16) [456]  (2.73 ns)
+	'add' operation ('tmp31', conv2d.cpp:16) [457]  (1.73 ns)
+	'add' operation ('tmp27', conv2d.cpp:16) [458]  (3.19 ns)
+
+ <State 18>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_2', conv2d.cpp:16) on array 'a' [193]  (1.81 ns)
+	'mul' operation ('tmp_7_0_2', conv2d.cpp:16) [197]  (3.61 ns)
+	'add' operation ('tmp5', conv2d.cpp:16) [427]  (2.73 ns)
+
+ <State 19>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_9', conv2d.cpp:16) on array 'a' [291]  (1.81 ns)
+	'mul' operation ('tmp_7_1_3', conv2d.cpp:16) [295]  (3.61 ns)
+	'add' operation ('tmp12', conv2d.cpp:16) [434]  (2.73 ns)
+
+ <State 20>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('a_load_11', conv2d.cpp:16) on array 'a' [301]  (1.81 ns)
+	'mul' operation ('tmp_7_1_5', conv2d.cpp:16) [305]  (3.61 ns)
+	'add' operation ('tmp13', conv2d.cpp:16) [435]  (2.73 ns)
+
+ <State 21>: 8.13ns
+The critical path consists of the following:
+	'add' operation ('tmp11', conv2d.cpp:16) [436]  (0 ns)
+	'add' operation ('tmp10', conv2d.cpp:16) [441]  (3.19 ns)
+	'add' operation ('tmp1', conv2d.cpp:16) [442]  (0 ns)
+	'add' operation ('tmp_10_5_5', conv2d.cpp:16) [460]  (3.19 ns)
+	'store' operation (conv2d.cpp:16) of variable 'tmp_10_5_5', conv2d.cpp:16 on array 'res' [461]  (1.75 ns)
+
+ <State 22>: 0ns
 The critical path consists of the following:
 
 
@@ -358,6 +852,19 @@ N/A
 	State 7
 	State 8
 	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
 
 
 ============================================================

@@ -21,7 +21,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "48",
+    "Latency": "453",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -58,19 +58,19 @@
     "a_address0": {
       "type": "data",
       "dir": "out",
-      "width": "5",
+      "width": "7",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "5"
+          "Width": "7"
         }}
     },
     "a_address1": {
       "type": "data",
       "dir": "out",
-      "width": "5",
+      "width": "7",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "5"
+          "Width": "7"
         }}
     },
     "a_q0": {
@@ -114,19 +114,19 @@
     "b_0_address0": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_0_address1": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_0_q0": {
@@ -150,19 +150,19 @@
     "b_1_address0": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_1_address1": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_1_q0": {
@@ -186,19 +186,19 @@
     "b_2_address0": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_2_address1": {
       "type": "data",
       "dir": "out",
-      "width": "2",
+      "width": "3",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "2"
+          "Width": "3"
         }}
     },
     "b_2_q0": {
@@ -219,13 +219,121 @@
           "Width": "8"
         }}
     },
+    "b_3_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_3_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_3_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
+    "b_3_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
+    "b_4_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_4_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_4_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
+    "b_4_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
+    "b_5_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_5_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "3",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "3"
+        }}
+    },
+    "b_5_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
+    "b_5_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "8"
+        }}
+    },
     "res_address0": {
       "type": "data",
       "dir": "out",
-      "width": "4",
+      "width": "5",
       "ctype": {"DATA": {
           "Type": "null",
-          "Width": "4"
+          "Width": "5"
         }}
     },
     "res_d0": {
@@ -265,7 +373,7 @@
     },
     "a_address0": {
       "dir": "out",
-      "width": "5"
+      "width": "7"
     },
     "a_ce0": {
       "dir": "out",
@@ -277,7 +385,7 @@
     },
     "a_address1": {
       "dir": "out",
-      "width": "5"
+      "width": "7"
     },
     "a_ce1": {
       "dir": "out",
@@ -289,7 +397,7 @@
     },
     "b_0_address0": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_0_ce0": {
       "dir": "out",
@@ -301,7 +409,7 @@
     },
     "b_0_address1": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_0_ce1": {
       "dir": "out",
@@ -313,7 +421,7 @@
     },
     "b_1_address0": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_1_ce0": {
       "dir": "out",
@@ -325,7 +433,7 @@
     },
     "b_1_address1": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_1_ce1": {
       "dir": "out",
@@ -337,7 +445,7 @@
     },
     "b_2_address0": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_2_ce0": {
       "dir": "out",
@@ -349,7 +457,7 @@
     },
     "b_2_address1": {
       "dir": "out",
-      "width": "2"
+      "width": "3"
     },
     "b_2_ce1": {
       "dir": "out",
@@ -359,9 +467,81 @@
       "dir": "in",
       "width": "8"
     },
+    "b_3_address0": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_3_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_3_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "b_3_address1": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_3_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_3_q1": {
+      "dir": "in",
+      "width": "8"
+    },
+    "b_4_address0": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_4_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_4_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "b_4_address1": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_4_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_4_q1": {
+      "dir": "in",
+      "width": "8"
+    },
+    "b_5_address0": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_5_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_5_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "b_5_address1": {
+      "dir": "out",
+      "width": "3"
+    },
+    "b_5_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "b_5_q1": {
+      "dir": "in",
+      "width": "8"
+    },
     "res_address0": {
       "dir": "out",
-      "width": "4"
+      "width": "5"
     },
     "res_ce0": {
       "dir": "out",
@@ -386,7 +566,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "25",
+      "arraySize": "100",
       "handshakeRef": "ap_none"
     },
     "a_q1": {
@@ -394,7 +574,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "25",
+      "arraySize": "100",
       "handshakeRef": "ap_none"
     },
     "b_0_q0": {
@@ -402,7 +582,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "b_0_q1": {
@@ -410,7 +590,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "b_1_q0": {
@@ -418,7 +598,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "b_1_q1": {
@@ -426,7 +606,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "b_2_q0": {
@@ -434,7 +614,7 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "b_2_q1": {
@@ -442,7 +622,55 @@
       "dir": "in",
       "dataWidth": "8",
       "busTypeRef": "ap_memory",
-      "arraySize": "3",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_3_q0": {
+      "interfaceRef": "b_3_q0",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_3_q1": {
+      "interfaceRef": "b_3_q1",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_4_q0": {
+      "interfaceRef": "b_4_q0",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_4_q1": {
+      "interfaceRef": "b_4_q1",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_5_q0": {
+      "interfaceRef": "b_5_q0",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
+      "handshakeRef": "ap_none"
+    },
+    "b_5_q1": {
+      "interfaceRef": "b_5_q1",
+      "dir": "in",
+      "dataWidth": "8",
+      "busTypeRef": "ap_memory",
+      "arraySize": "6",
       "handshakeRef": "ap_none"
     },
     "res_d0": {
@@ -450,7 +678,7 @@
       "dir": "out",
       "dataWidth": "16",
       "busTypeRef": "ap_memory",
-      "arraySize": "9",
+      "arraySize": "25",
       "handshakeRef": "ap_none"
     }
   },
@@ -458,36 +686,36 @@
     "Hierarchy": {"ModuleName": "conv2d"},
     "Metrics": {"conv2d": {
         "Latency": {
-          "LatencyBest": "48",
-          "LatencyAvg": "48",
-          "LatencyWorst": "48",
-          "PipelineII": "49",
+          "LatencyBest": "453",
+          "LatencyAvg": "453",
+          "LatencyWorst": "453",
+          "PipelineII": "454",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "8.42"
+          "Estimate": "10.46"
         },
         "Loops": [{
             "Name": "Row_Col",
-            "TripCount": "9",
-            "Latency": "46",
-            "PipelineII": "5",
-            "PipelineDepth": "7"
+            "TripCount": "25",
+            "Latency": "451",
+            "PipelineII": "18",
+            "PipelineDepth": "20"
           }],
         "Area": {
-          "DSP48E": "5",
-          "FF": "197",
-          "LUT": "733",
+          "DSP48E": "20",
+          "FF": "964",
+          "LUT": "2412",
           "BRAM_18K": "0"
         }
       }}
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2024-12-12 14:21:54 +0700",
+    "Time": "2024-12-12 17:02:47 +0700",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.1"
   }

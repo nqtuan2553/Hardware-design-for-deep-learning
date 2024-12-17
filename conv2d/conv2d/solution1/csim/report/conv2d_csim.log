@@ -1,6 +1,5 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../conv2d_test.cpp in debug mode
    Compiling ../../../../conv2d.cpp in debug mode
    Generating csim.exe
 {

@@ -1816,24 +1816,24 @@ typedef short result_t;
 
 
 void conv2d(
-      mat_a_t a[5][5],
-      kernel b[3][3],
-      result_t res[5 - 3 + 1][5 - 3 + 1]);
+      mat_a_t a[10][10],
+      kernel b[6][6],
+      result_t res[10 - 6 + 1][10 - 6 + 1]);
 # 2 "conv2d.cpp" 2
 
 void conv2d(
-      mat_a_t a[5][5],
-      kernel b[3][3],
-      result_t res[5 - 3 + 1][5 - 3 + 1])
+      mat_a_t a[10][10],
+      kernel b[6][6],
+      result_t res[10 - 6 + 1][10 - 6 + 1])
 {
 
-  Row: for(short i = 0; i < 5 - 3 + 1; i++) {
+  Row: for(int i = 0; i < 10 - 6 + 1; i++) {
 
-    Col: for(short j = 0; j < 5 - 3 + 1; j++) {
+    Col: for(int j = 0; j < 10 - 6 + 1; j++) {
 
       res[i][j] = 0;
-      Product: for(short ki = 0; ki < 3; ki++) {
-                  Product2: for(short kj = 0; kj < 3; kj++) {
+      Product: for(int ki = 0; ki < 6; ki++) {
+                  Product2: for(int kj = 0; kj < 6; kj++) {
                     res[i][j] += a[i+ki][j+kj] * b[ki][kj];
         }
       }

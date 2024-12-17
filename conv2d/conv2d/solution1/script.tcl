@@ -10,7 +10,7 @@ add_files -tb conv2d_test.cpp -cflags "-DHW_COSIM"
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 10 -name default
-source "./conv2d/solution1/directives.tcl"
+#source "./conv2d/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design

@@ -1,13 +1,12 @@
 INFO: [HLS 200-10] Running 'E:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'DEll' on host 'desktop-t42lkio' (Windows NT_amd64 version 6.2) on Thu Dec 12 16:35:16 +0700 2024
+INFO: [HLS 200-10] For user 'DEll' on host 'desktop-t42lkio' (Windows NT_amd64 version 6.2) on Thu Dec 12 20:39:18 +0700 2024
 INFO: [HLS 200-10] In directory 'E:/vivado/conv2d'
 INFO: [HLS 200-10] Opening project 'E:/vivado/conv2d/conv2d'.
-INFO: [HLS 200-10] Opening solution 'E:/vivado/conv2d/conv2d/solution3'.
+INFO: [HLS 200-10] Opening solution 'E:/vivado/conv2d/conv2d/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
-INFO: [HLS 200-10] Setting target device to 'xc7z045ffg900-2'
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../conv2d_test.cpp in debug mode
    Compiling ../../../../conv2d.cpp in debug mode
    Generating csim.exe
 {

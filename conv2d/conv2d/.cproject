@@ -25,7 +25,6 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1192805070" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.230432091" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.85527697" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/vivado/conv2d"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/include/etc"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
@@ -43,7 +42,6 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.697900511" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.248572599" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1489978733" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/vivado/conv2d"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/include/etc"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
@@ -98,7 +96,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="solution1|solution10|solution11|solution2|solution3|solution4|solution5|solution6|solution7|solution8|solution9|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="solution1|solution2|solution3|solution4|solution5|solution6|solution7|solution8|solution9|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -128,7 +126,6 @@
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.170680184" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.687938925" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.1242347232" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/vivado/conv2d"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/include/etc"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
@@ -141,7 +138,6 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.2089263306" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.1939938189" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1607451357" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/vivado/conv2d"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/include/etc"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="E:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
@@ -191,7 +187,7 @@
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="solution1|solution10|solution11|solution2|solution3|solution4|solution5|solution6|solution7|solution8|solution9|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="solution1|solution2|solution3|solution4|solution5|solution6|solution7|solution8|solution9|*.c*|*.C*" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

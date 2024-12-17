@@ -1,0 +1,5 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+make: *** No rule to make target `../../../../conv2d_test.c', needed by `obj/conv2d_test.o'.  Stop.
+CRITICAL WARNING: [SIM 100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 3] *************** CSIM finish ***************
